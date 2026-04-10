@@ -1,0 +1,10 @@
+{
+ "presets": [
+  [
+    "@babel/preset-env",
+    {
+      "targets": { "esmodules": true }  // Targets environments that support ES6+ (ES modules)
+    }
+  ]
+ ]
+}
