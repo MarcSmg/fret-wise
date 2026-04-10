@@ -44,9 +44,7 @@ function shapeToDiagram(shape: Shape): Diagram {
                 stringIndex,
                 fret
             });
-
         }
-        
     }
 
     return {
