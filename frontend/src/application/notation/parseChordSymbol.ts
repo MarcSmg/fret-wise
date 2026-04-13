@@ -1,12 +1,12 @@
-import { createInterval } from "../domain/harmony/Interval";
-import { Chord } from "../domain/harmony/Chord";
-import { isQualityAlias, QUALITY_ALIASES, QUALITY_PATTERNS, QualityAlias } from "./chordQualities";
-import { isNote, Note, NOTE_MAP } from "./notemap";
-import { PitchClass } from "../domain/harmony/PitchClass";
+import { createInterval } from "../../domain/harmony/Interval";
+import { Chord } from "../../domain/harmony/Chord";
+import { isQualityAlias, QUALITY_ALIASES, QUALITY_PATTERNS } from "./chordQualities";
+import { isNote, NOTE_MAP } from "./notemap";
+import { PitchClass } from "../../domain/harmony/PitchClass";
 
 function parseChordSymbol(raw: string) {
 
-    const match = raw.match(/^([A-G](?:#|b)?)(.*)$/); // returns the root note and the rest
+    const match = raw.match(/^([A-Ga-g](?:#|b)?)(.*)$/); // returns the root note and the rest
 
     if (!match) {
         throw new Error(`Invalid chord symbol: ${raw}`);
@@ -14,11 +14,11 @@ function parseChordSymbol(raw: string) {
 
     const [, rootToken, qualityToken] = match;
 
-    if (!isNote(rootToken)) {
+    if (!isNote(rootToken.toUpperCase())) {
         throw new Error(`Unknown root: ${rootToken}`);
     }
     
-    const rootSemitone = NOTE_MAP[rootToken];
+    const rootSemitone = NOTE_MAP[rootToken.toUpperCase()];
 
     if (!isQualityAlias(qualityToken)) {
         throw new Error(`Unknown chord quality: ${qualityToken}`);
@@ -35,3 +35,5 @@ function parseChordSymbol(raw: string) {
         symbol: raw
     };
 }
+
+export {parseChordSymbol};

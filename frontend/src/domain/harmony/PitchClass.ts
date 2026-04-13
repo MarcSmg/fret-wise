@@ -1,7 +1,12 @@
-import { Interval } from "./Interval";
+import type { Interval } from "./Interval";
 
 class PitchClass {
-    private constructor(private readonly value: number) {}
+
+    private readonly value: number
+
+    private constructor(value: number) {
+        this.value = value;
+    }
 
     static create(n: number): PitchClass {
         return new PitchClass(((n % 12) + 12) % 12);

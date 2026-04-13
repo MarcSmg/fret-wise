@@ -14,6 +14,7 @@ export const NOTE_MAP: Record<string, number> = {
 } as const;
 
 function isNote(value: string): value is Note {
+  console.log(value)
   return value in NOTE_MAP;
 }
 

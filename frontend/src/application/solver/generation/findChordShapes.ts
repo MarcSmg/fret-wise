@@ -1,10 +1,10 @@
-import { Fretboard } from "../../domain/geometry/Fretboard";
-import { Chord } from "../../domain/harmony/Chord";
+import { Fretboard } from "../../../domain/geometry/Fretboard";
+import { Chord } from "../../../domain/harmony/Chord";
 import { generateShapes } from "./generateShapes";
 import { matchesChord } from "../analysis/matchesChord";
 import { scoreShapes } from "../analysis/scoreShapes";
 import { filterShapes } from "../analysis/filterShapes";
-import { Shape } from "../../domain/geometry/Shape";
+import { Shape } from "../../../domain/geometry/Shape";
 
 export function findChordShapes(chord: Chord, fretboard: Fretboard) {
     

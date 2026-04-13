@@ -6,7 +6,11 @@ class Shape {
 
     public score: number = 0;
 
-    constructor(private readonly frets: readonly Fret[]) {}
+    private readonly frets: readonly Fret[];
+
+    constructor(frets: readonly Fret[]) {
+        this.frets = frets;
+    }
 
     getFrets(): readonly Fret[] {
         // All frets

@@ -1,6 +1,7 @@
-import { Fretboard } from "../../domain/geometry/Fretboard";
-import { Fret, Shape } from "../../domain/geometry/Shape";
-import { Chord } from "../../domain/harmony/Chord";
+import { Fretboard } from "../../../domain/geometry/Fretboard";
+import { Shape } from "../../../domain/geometry/Shape";
+import type { Fret } from "../../../domain/geometry/Shape";
+import { Chord } from "../../../domain/harmony/Chord";
 
 type Constraints = {
     maxSpan: number,
@@ -20,8 +21,6 @@ export function generateShapes(
         minNotes: 3,
         maxStrings: 6
     }
-
-    const maxFret = fretboard.fretCount;
     
     const options: Fret[][] = [];
 
@@ -32,7 +31,7 @@ export function generateShapes(
 
         for (let j=0; j < fretboard.fretCount; j++) {
             const pc = fretboard.pitchAt(i, j);
-            
+
             if (chord.contains(pc)) validFrets.push(j);
         }
         options.push(validFrets);

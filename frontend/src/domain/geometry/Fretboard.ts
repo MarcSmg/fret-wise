@@ -3,10 +3,17 @@ import { PitchClass } from "../harmony/PitchClass";
 
 class Fretboard {
     // Converts (string, fret) to notes (pitch classes)
+    
+    readonly tuning: PitchClass[];
+    readonly fretCount: number;
+
     constructor(
-        readonly tuning: PitchClass[],
-        readonly fretCount: number
-    ) {}
+        fretCount: number,
+        tuning?: PitchClass[]
+    ) {
+        this.tuning = tuning ?? createTuning([4,9,2,7,11,4]);
+        this.fretCount = fretCount;
+    }
 
     get stringCount() {
         return this.tuning.length;
@@ -24,6 +31,10 @@ class Fretboard {
         const openStringPitch = this.tuning[stringIndex];
         return openStringPitch.transpose(createInterval(fret));
     }
+}
+
+function createTuning(arr: number[]): PitchClass[] {
+    return arr.map(PitchClass.create);
 }
 
 export {Fretboard};

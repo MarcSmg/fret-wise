@@ -1,11 +1,18 @@
-import { Interval } from "./Interval";
+import type { Interval } from "./Interval";
 import { PitchClass } from "./PitchClass";
 
 class Chord {
+
+    public readonly root: PitchClass;
+    public readonly intervals: readonly Interval[]
+
     private constructor(
-        public readonly root: PitchClass,
-        public readonly intervals: readonly Interval[],
-    ) {}
+        root: PitchClass,
+        intervals: readonly Interval[],
+    ) {
+        this.root = root;
+        this.intervals = intervals;
+    }
 
     static create(
         root: PitchClass,
@@ -24,7 +31,7 @@ class Chord {
     }
 
     contains(pc: PitchClass): boolean {
-        return this.pitchClasses().includes(pc);
+        return this.pitchClasses().some((p: PitchClass) => p.equals(pc));
     }
 }
 

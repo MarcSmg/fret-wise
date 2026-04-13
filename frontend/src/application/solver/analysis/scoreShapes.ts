@@ -1,4 +1,4 @@
-import { Shape } from "../../domain/geometry/Shape";
+import { Shape } from "../../../domain/geometry/Shape";
 
 export function scoreShapes(
     shapes: Shape[]

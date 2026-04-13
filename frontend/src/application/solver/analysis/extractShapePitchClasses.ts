@@ -1,6 +1,6 @@
-import {Shape} from "../../domain/geometry/Shape"
-import { Fretboard } from "../../domain/geometry/Fretboard";
-import { PitchClass } from "../../domain/harmony/PitchClass";
+import type {Shape} from "../../../domain/geometry/Shape"
+import type { Fretboard } from "../../../domain/geometry/Fretboard";
+import type { PitchClass } from "../../../domain/harmony/PitchClass";
 
 export function extractShapePitchClasses(
     shape: Shape,

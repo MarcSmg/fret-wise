@@ -1,33 +1,54 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { parseChordSymbol } from './application/notation/parseChordSymbol';
+import { Fretboard } from './domain/geometry/Fretboard';
+import { shapeToDiagram } from './application/diagram/shapeToDiagram';
+import { renderDiagram } from './rendering/renderDiagram';
+import { findChordShapes } from './application/solver/generation/findChordShapes';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [input, setInput] = useState("C");
+  const [svgs, setSvgs] = useState<string[]>([]);
+  const fretboard = new Fretboard(21);
+
+  const handleGenerate = () => {
+    const {value: chord,} = parseChordSymbol(input);
+
+    const shapes = findChordShapes(chord, fretboard);
+
+    const diagrams = shapes.map(shape => {
+      const diagram = shapeToDiagram(shape);
+      return renderDiagram(diagram, input);
+    });
+
+    console.log(diagrams);
+
+    setSvgs(diagrams);
+  }
 
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+        <input 
+          type="text" 
+          value = {input}
+          onChange={(e) => setInput(e.target.value)} 
+        />
+        <button onClick={handleGenerate}>
+          Generate
         </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+        <div>
+          {svgs.map((svg, i) => (
+            <div
+              key={i}
+              style={{ marginBottom: "20px" }}
+              dangerouslySetInnerHTML={{ __html: svg }}
+            />
+          ))}
+        </div>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }

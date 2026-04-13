@@ -1,4 +1,4 @@
-import { Fret, Shape } from "../domain/geometry/Shape"
+import { Shape } from "../../domain/geometry/Shape"
 
 type Dot = {
     stringIndex: number,
@@ -22,9 +22,9 @@ function shapeToDiagram(shape: Shape): Diagram {
 
     if (baseFret !== 1){
         frets = frets.map(f => {
-            if (f != null && f != 0) return f - baseFret;
+            if (f != null && f != 0) return f - baseFret + 1;
             else return f;
-        }); // makes fret numbers relative to the base fret 
+        }); // makes fret numbers relative to the base fret (relative frets start from 1 and open strings corresponds 0)
     }
 
     const dots: Dot[] = [];
@@ -56,5 +56,5 @@ function shapeToDiagram(shape: Shape): Diagram {
     };
 }
 
-export type {Diagram};
+export type {Diagram, Dot};
 export {shapeToDiagram};
