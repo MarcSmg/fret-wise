@@ -1,18 +1,38 @@
+import { Fretboard } from "../../../domain/geometry/Fretboard";
 import { Shape } from "../../../domain/geometry/Shape";
+import type { Chord } from "../../../domain/harmony/Chord";
+import { hasRootInBass } from "./bassNoteAnalysis";
+import { barrePotential, fingerSpread, hasBarreConflict, hasIsolatedNote } from "./playability";
 
-export function scoreShapes(
-    shapes: Shape[]
-): Shape[] {
+export function scoreShapes(shapes: Shape[], chord: Chord, fretboard: Fretboard): Shape[] {
 
-    const scored: Shape[] = shapes.map<Shape>( s => {
-        
-        s.score = 
-        - s.span() 
-        - s.averageFret() 
-        - s.mutedStringsCount() * 0.5;
+    return shapes
+        .map(s => {
 
-        return s;
-    })
+            s.score = 0;
 
-    return scored;
+            const playedFrets = s.played();
+            const duplicatesCount = playedFrets.length - new Set(playedFrets).size;
+
+            s.score += 
+                - s.baseFret() * 0.5
+                - s.span() * 1.5
+                - s.mutedStringsCount() * 0.5
+                - fingerSpread(s) * 0.2;
+                - duplicatesCount * 0.2
+                + s.openStringsCount() * 0.5
+                + s.cagedSimilarity() * 3;
+                + barrePotential(s) * 0.5;
+
+            if (hasIsolatedNote(s)) s.score -= 2;
+            if (hasRootInBass(s, chord, fretboard)) {
+                s.score += 2;
+            } else {
+                s.score -= 1;
+            }
+
+            return s;
+        })
+        .sort((a, b) => b.score - a.score);
 }
+

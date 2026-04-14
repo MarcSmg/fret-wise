@@ -14,7 +14,7 @@ type Diagram = {
 }
 
 function shapeToDiagram(shape: Shape): Diagram {
-    const baseFret = shape.lowestFret() ?? 1; // If there is no fretted fret (the chord is totally open), the base fret is 1
+    const baseFret = shape.baseFret();
 
     let frets = [...shape.getFrets()];
 

@@ -18,7 +18,7 @@ function createConstraints(diagram: Diagram): Constraints {
     const stringCount = diagram.stringCount
     const fretCount = 5;
 
-    const topOffset = diagram.mutedStrings.length !== 0 || diagram.openStrings.length !== 0 ? 35 : 20;
+    const topOffset = diagram.mutedStrings.length !== 0 || diagram.openStrings.length !== 0 ? 40 : 25;
     const leftOffset = diagram.baseFret > 1 ? 20 : 0;
 
     const margin = 25;
@@ -49,6 +49,7 @@ function renderDiagram(diagram: Diagram, label?: string) {
     const constraints = createConstraints(diagram);
 
     const parts: string[] = [
+        `<rect width="100%" height="100%" fill="white" />`,
         ...(label ? [drawChordName(constraints, label)] : []),
         drawStrings(constraints),
         drawFrets(constraints, diagram.baseFret),
@@ -157,7 +158,7 @@ function drawMutedStrings(c: Constraints, diagram: Diagram): string {
 
 function drawChordName(c: Constraints, label: string): string {
     const centerX = c.originX + ((c.stringCount - 1) * c.stringSpacing) / 2;
-    const y = c.originY - c.topOffset - 10;
+    const y = c.originY - c.topOffset - 5;
 
     return text(centerX, y, label);
 }

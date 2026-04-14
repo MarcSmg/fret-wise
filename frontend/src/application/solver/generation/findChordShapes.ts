@@ -17,9 +17,9 @@ export function findChordShapes(chord: Chord, fretboard: Fretboard) {
 
     const filtered: Shape[] = filterShapes(validShapes, chord, fretboard);
 
-    const scored: Shape[] = scoreShapes(filtered);
+    const scored: Shape[] = scoreShapes(filtered, chord, fretboard);
 
-    scored.sort((a,b) => b.score - a.score);
+    scored;
     
-    return scored.slice(0, 20);
+    return scored.slice(0, 50);
 }

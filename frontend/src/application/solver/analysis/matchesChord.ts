@@ -7,11 +7,11 @@ export function matchesChord(shape: Shape, chord: Chord, fretboard: Fretboard): 
     
     // This function checks if the given shape has at least every note of a chord
 
+    const chordPitchClasses = chord.pitchClasses(); 
+
     const shapePitchClasses = extractShapePitchClasses(shape, fretboard);
-    
-    const chordPitchClasses = chord.pitchClasses();
 
-    const shapeSet = new Set(shapePitchClasses);
-
-    return chordPitchClasses.every(pc => [...shapeSet].some(p => p.equals(pc)));
+    return chordPitchClasses.every(pc =>
+    shapePitchClasses.some(p => p.equals(pc))
+);
 }

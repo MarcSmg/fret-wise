@@ -1,3 +1,6 @@
+import { CAGED_PATTERNS } from "../patterns/caged";
+import type { Fretboard } from "./Fretboard";
+
 type Fret = number | null;
 
 class Shape {
@@ -17,9 +20,22 @@ class Shape {
         return this.frets;
     }
 
+    relativeFrets(): Fret[] {
+        const base = this.baseFret();
+
+        return this.frets.map(f => {
+            if (f === null) return null;
+            if (f === 0) return 0;
+            return f - base;
+        });
+    }
     fretted(): number[] {
         // Fretted frets
         return this.frets.filter( (f): f is number => f != null && f > 0);
+    }
+
+    played(): number[] {
+        return this.frets.filter( (f): f is number => f != null);
     }
 
     lowestFret(): number | null {
@@ -34,13 +50,18 @@ class Shape {
         return fretted.length ? Math.max(...fretted): null;
     }
 
+    baseFret(): number {
+        return this.lowestFret() ?? 1; // If there is no fretted fret (the chord is totally open), the base fret is 1
+    }
+
     averageFret(): number {
-        const lowest = this.lowestFret();
-        const highest = this.highestFret();
+        const fretted = this.fretted();
+        if (!fretted.length) return 0;
+        return fretted.reduce((a, b) => a + b, 0) / fretted.length;
+    }
 
-        if (lowest == null || highest == null) return 0;
-
-        return (highest - lowest) / 2
+    openStringsCount(): number {
+        return this.frets.filter(f => f === 0).length;
     }
 
     mutedStringsCount(): number {
@@ -70,6 +91,56 @@ class Shape {
 
         return new Shape(newShapeFrets);
     }
+
+    cagedSimilarity(): number {
+        const frets = this.relativeFrets();
+        let bestScore = 0;
+
+        for (const pattern of CAGED_PATTERNS) {
+            const score = compare(frets, pattern.frets);
+            bestScore = Math.max(bestScore, score);
+        }
+
+        return bestScore;
+    }
+}
+
+function compare(frets: Fret[], pattern: Fret[]): number {
+    let score = 0;
+
+    for (let i = 0; i < frets.length; i++) {
+        const f = frets[i];
+        const p = pattern[i];
+
+        if (f === p) {
+            score += 1;
+        } 
+        else if (f != null && f > 0 && p != null && p > 0) {
+            score += 0.5;
+        } 
+        else if ((f == null && p != null) || (f != null && p == null)) {
+            score += 0.2;
+        }
+    }
+
+    return score / frets.length;
+}
+
+function getBassPitchClass(
+    shape: Shape,
+    fretboard: Fretboard
+) {
+    const frets = shape.getFrets();
+
+    for (let i = 0; i < frets.length; i++) {
+        const fret = frets[i];
+
+        if (fret != null) {
+            return fretboard.pitchAt(i, fret);
+        }
+    }
+
+    return null;
 }
 
 export {Shape};

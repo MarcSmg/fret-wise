@@ -14,11 +14,11 @@ function parseChordSymbol(raw: string) {
 
     const [, rootToken, qualityToken] = match;
 
-    if (!isNote(rootToken.toUpperCase())) {
+    if (!isNote(rootToken)) {
         throw new Error(`Unknown root: ${rootToken}`);
     }
     
-    const rootSemitone = NOTE_MAP[rootToken.toUpperCase()];
+    const rootSemitone = NOTE_MAP[rootToken];
 
     if (!isQualityAlias(qualityToken)) {
         throw new Error(`Unknown chord quality: ${qualityToken}`);

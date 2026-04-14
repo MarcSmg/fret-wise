@@ -22,8 +22,6 @@ function App() {
       return renderDiagram(diagram, input);
     });
 
-    console.log(diagrams);
-
     setSvgs(diagrams);
   }
 
