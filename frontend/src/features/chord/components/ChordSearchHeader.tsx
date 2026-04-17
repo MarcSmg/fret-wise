@@ -1,19 +1,23 @@
-import { SearchInput } from "../../../shared/ui/SearchInput"
+import { ChordSearchInput } from "../../../shared/ui/ChordSearchInput"
 
 interface ChordSearchHeaderProps {
     input: string,
-    onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
+    onClear: () => void
 } 
 
-export const ChordSearchHeader = ({input, onInputChange}: ChordSearchHeaderProps) => {
+export const ChordSearchHeader = ({input, onInputChange, onClear}: ChordSearchHeaderProps) => {
   return (
-    <section className="flex flex-col gap-5">
-        <h1>Search a Chord</h1>
+    <section className="flex flex-col">
+        {/* <Heading level={2}>Search a chord</Heading> */}
         <div>
-            <SearchInput
+            <ChordSearchInput
                 type="text" 
                 value = {input}
                 onChange={onInputChange} 
+                hasText={!!input}
+                onClear={onClear}
+                className="md:w-150"
             />
         </div>
     </section>

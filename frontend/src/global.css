@@ -5,23 +5,76 @@
 @layer base {
   :root {
     /* Light Theme */
+    --brand: #3b82f6;
+
     --bg-main: #ffffff;
     --bg-card: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-elevated: #f1f5f9;
+    
+    --border-subtle: #e2e8f0;
+    --border-strong: #8f959b;
+
     --text-main: #0f172a;
     --text-muted: #64748b;
-    --border-main: #e2e8f0;
-    --brand: #3b82f6;
+    --text-disabled: #94a3b8;
+
+    --primary-bold: #4f46e5;
+    --primary-soft: #eef2ff;
+
+    --success-bold: #059669;
+    --success-soft: #ecfdf5;
+
+    --error-bold: #e11d48;
+    --error-soft: #fff1f2;
+
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    
+    /* Glass Effect */
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.3);
+    --glass-blur: blur(10px);
   }
 
   .dark {
-    /* Dark Theme */ 
-    --bg-main: #020617;
-    --bg-card: #1e293b;
-    --text-main: #f8fafc;
-    --text-muted: #94a3b8;
-    --border-main: #334155;
     --brand: #60a5fa;
+
+    --bg-main: #020617;        /* Deepest layer */
+    --bg-card: #0f172a;        /* Card background */
+    --bg-surface: #1e293b;     /* Component surfaces */
+    --bg-elevated: #334155;    /* Hover states/Popovers */
+    
+    /* Borders & Dividers */
+    --border-subtle: #1e293b;  /* Low contrast separation */
+    --border-strong: #334155;  /* Defined edges/Inputs */
+    
+    /* Text Hierarchy */
+    --text-main: #f8fafc;      /* High contrast headers */
+    --text-muted: #94a3b8;     /* Body text */
+    --text-disabled: #475569;  /* Inactive states */
+
+    /* Semantic Accents (Desaturated for eye comfort) */
+    --primary-bold: #818cf8;
+    --primary-soft: rgba(79, 70, 229, 0.15);
+
+    --success-bold: #34d399;
+    --success-soft: rgba(5, 150, 105, 0.15);
+
+    --error-bold: #fb7185;
+    --error-soft: rgba(225, 29, 72, 0.15);
+
+    /* Elevation & Effects */
+    /* Note: Shadows in dark mode should be darker/larger to be visible */
+    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+    
+    /* Glass Effect (Dark mode glass uses dark translucent fills) */
+    --glass-bg: rgba(15, 23, 42, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
   }
+
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
@@ -36,11 +89,49 @@
   }
 }
 
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+}
+
+
 @theme {
-  --color-surface: var(--bg-main);
-  --color-surface-card: var(--bg-card);
+  /* Surface / Backgrounds */
+  --color-ui-bg: var(--bg-main);
+  --color-ui-card: var(--bg-card);
+  --color-ui-surface: var(--bg-surface);
+  --color-ui-elevated: var(--bg-elevated);
+
+  /* Brand & Primary */
+  --color-primary: var(--brand);
+  --color-accent-bold: var(--primary-bold);
+  --color-accent-soft: var(--primary-soft);
+
+  /* Typography */
   --color-content: var(--text-main);
   --color-content-muted: var(--text-muted);
-  --color-stroke: var(--border-main);
-  --color-primary: var(--brand);
+  --color-content-disabled: var(--text-disabled);
+
+  /* Borders */
+  --color-stroke-subtle: var(--border-subtle);
+  --color-stroke-strong: var(--border-strong);
+
+  /* Semantic */
+  --color-status-success: var(--success-bold);
+  --color-status-success-soft: var(--success-soft);
+  --color-status-error: var(--error-bold);
+  --color-status-error-soft: var(--error-soft);
+
+  /* Effects */
+  --shadow-detail-sm: var(--shadow-sm);
+  --shadow-detail-md: var(--shadow-md);
+  --blur-glass: var(--glass-blur);
 }

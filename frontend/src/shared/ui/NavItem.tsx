@@ -11,7 +11,7 @@ export const NavItem = ({to, label, icon, className}: NavItemProps) => {
   return (
       <NavLink
         to={to}
-        className={`flex gap-3 ${className}`}
+        className={ ({ isActive }) => `flex gap-3 ${className} ${isActive ? "md:text-white md:bg-primary" : "" }`}
       >
           <span>{icon}</span>
           <span>{label}</span>

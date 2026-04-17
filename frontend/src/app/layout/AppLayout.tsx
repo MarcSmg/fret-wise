@@ -1,19 +1,22 @@
 import { GoHeart, GoHeartFill, GoHomeFill } from 'react-icons/go';
-import { ThemeProvider } from '../../context/ThemeContext'
+import { ThemeProvider } from "../providers/ThemeProvider"
 import Sidebar from './Sidebar'
 import { Outlet } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa';
 import { BottomNav } from './BottomNav';
 import { TopNav } from './TopNav';
+import { BiSearch } from 'react-icons/bi';
 
 const desktopSidebarItems = [
-  { to: "/", label: "Home", icon: <GoHomeFill size={20} /> },
+  { to: "/home", label: "Home", icon: <GoHomeFill size={20} /> },
+  { to: "/search", label: "Search a chord", icon: <BiSearch strokeWidth={1} size={20}/>},
   { to: "/favorites", label: "Favorites", icon: <GoHeartFill size={20} /> },
   { to: "/profile", label: "Profile", icon: <FaUser size={20} /> },
 ];
 
 const mobileNavbarItems = [
-  { to: "/", label: "Home", icon: <GoHomeFill size={20} /> },
+  { to: "/home", label: "Home", icon: <GoHomeFill size={20} /> },
+  { to: "/search", label: "Search a chord", icon: <BiSearch strokeWidth={1} size={20}/>},
   { to: "/favorites", label: "Favorites", icon: <GoHeart strokeWidth={1} size={20} /> },
   { to: "/profile", label: "Profile", icon: <FaUser size={20} /> },
 ];
@@ -22,13 +25,13 @@ export const AppLayout = () => {
   return (
     <ThemeProvider>
       <div 
-        className="md:flex w-full min-h-scree"
+        className="w-full h-screen overflow-hidden md:flex"
       >
           <Sidebar menuItems={desktopSidebarItems} />
-          <TopNav/>
-          <BottomNav menuItems={mobileNavbarItems} />
-          <main>
-              <Outlet />
+          <main className='w-full h-full overflow-y-auto'>
+            <TopNav/>
+            <Outlet />
+            <BottomNav menuItems={mobileNavbarItems} />
           </main>
       </div>
     </ThemeProvider>
