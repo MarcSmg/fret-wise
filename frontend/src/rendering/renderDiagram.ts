@@ -14,6 +14,10 @@ type Constraints = {
     nutHeight: number
 }
 
+// type RenderedDiagram = {
+
+// }
+
 function createConstraints(diagram: Diagram): Constraints {
     const stringCount = diagram.stringCount
     const fretCount = 5;
