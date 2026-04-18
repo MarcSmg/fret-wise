@@ -1,4 +1,4 @@
-import { AppHeader } from "../../shared/components/AppHeader"
+import { AppHeader } from "../../../shared/components/AppHeader"
 
 export const TopNav = () => {
   return (

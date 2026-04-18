@@ -1,6 +1,6 @@
-import { NavItem } from "../../shared/ui/NavItem";
-import { AppHeader } from "../../shared/components/AppHeader";
-import type { MenuItem } from "../../shared/types/navigation";
+import { NavItem } from "../../../shared/ui/NavItem";
+import { AppHeader } from "../../../shared/components/AppHeader";
+import type { MenuItem } from "../../../shared/types/navigation";
 
 const Sidebar = ({menuItems}: {menuItems: MenuItem[]}) => {
 

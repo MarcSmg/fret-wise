@@ -1,10 +1,10 @@
 import { GoHeart, GoHeartFill, GoHomeFill } from 'react-icons/go';
 import { ThemeProvider } from "../providers/ThemeProvider"
-import Sidebar from './Sidebar'
+import Sidebar from './navigation/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa';
-import { BottomNav } from './BottomNav';
-import { TopNav } from './TopNav';
+import { BottomNav } from './navigation/BottomNav';
+import { TopNav } from './navigation/TopNav';
 import { BiSearch } from 'react-icons/bi';
 
 const desktopSidebarItems = [

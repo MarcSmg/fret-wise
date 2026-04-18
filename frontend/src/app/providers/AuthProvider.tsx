@@ -29,7 +29,6 @@ export function AuthProvider({children}: AuthProviderProps) {
                 setUser(user);
             } finally {
                 setLoading(false);
-                console.log(loading)
             }
         }
         init();
