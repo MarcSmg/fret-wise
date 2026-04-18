@@ -8,7 +8,7 @@ interface ChordSearchHeaderProps {
 
 export const ChordSearchHeader = ({input, onInputChange, onClear}: ChordSearchHeaderProps) => {
   return (
-    <section className="flex flex-col">
+    <section className="flex flex-col px-5">
         {/* <Heading level={2}>Search a chord</Heading> */}
         <div>
             <ChordSearchInput
@@ -17,7 +17,7 @@ export const ChordSearchHeader = ({input, onInputChange, onClear}: ChordSearchHe
                 onChange={onInputChange} 
                 hasText={!!input}
                 onClear={onClear}
-                className="md:w-150"
+                className="md:w-150 rounded-full bg-ui-surface"
             />
         </div>
     </section>

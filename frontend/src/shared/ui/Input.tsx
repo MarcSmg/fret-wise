@@ -1,7 +1,7 @@
 import type { ComponentPropsWithRef, ReactNode } from "react"
 
 interface InputProps extends ComponentPropsWithRef<"input"> {
-    icon: ReactNode;
+    icon?: ReactNode;
 }
 
 export const Input = ({

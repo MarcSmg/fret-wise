@@ -5,15 +5,26 @@ import { AuthShell } from "../components/AuthShell";
 import { LoginForm } from "./LoginForm";
 import { SignupForm } from "./SignupForm";
 import Heading from "../../../shared/ui/Heading";
+import { replace, useNavigate } from "react-router-dom";
 
 const AUTH_OPTIONS = [
   { id: 'login', label: 'Login' },
   { id: 'signup', label: 'Create Account' }
 ];
 
-export const AuthPage = () => {
+type AuthPageProps = {
+  initialMode: "login" | "signup";
+}
 
-  const [activeTab, setActiveTab] = useState('login');
+export const AuthPage = ({initialMode}: AuthPageProps) => {
+
+  const navigate = useNavigate();
+
+  // const [activeTab, setActiveTab] = useState('login');
+
+  const handleTabChange = (id: string) => {
+    navigate(`/${id}`, { replace: true })
+  }
 
   return (
     <div className=" relative flex min-h-screen w-full bg-linear-to-t from-primary from-80% to-accent-bold">
@@ -26,12 +37,12 @@ export const AuthPage = () => {
         >
           <SlidingTabs
             options={AUTH_OPTIONS} 
-            activeId={activeTab} 
-            onChange={setActiveTab}
+            activeId={initialMode} 
+            onChange={handleTabChange}
           />
 
-          <AuthShell activeKey={activeTab}>
-            {activeTab === 'login' ? <LoginForm /> : <SignupForm />}
+          <AuthShell activeKey={initialMode}>
+            {initialMode === 'login' ? <LoginForm /> : <SignupForm />}
           </AuthShell>        
         </div>
       </div>

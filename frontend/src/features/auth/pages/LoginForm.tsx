@@ -4,17 +4,25 @@ import { Button } from '../../../shared/ui/Button';
 import { Checkbox } from '../../../shared/ui/Checkbox';
 import GoogleIcon from "../../../assets/google-icon.svg"
 import { Input } from '../../../shared/ui/Input';
+import { useNavigate } from 'react-router-dom';
 
 export const LoginForm = () => {
+
+    const navigate = useNavigate();
+
     const inputStyles = ` pl-11 py-3 w-full border-2 border-stroke-subtle 
     rounded-xl outline-primary/50 
     focus:outline-3 transition-all duration-100
     `;
     const iconStyles = `absolute left-4 text-stroke-strong`;
 
+    const handleLogin = () => {
+        navigate("/home");
+    }
+
   return (
     <div>
-        <form action="" className="flex flex-col gap-5 w-full pb-5">
+        <form onSubmit={handleLogin} action="" className="flex flex-col gap-5 w-full pb-5">
 
             <Input 
                 type="text"
@@ -35,7 +43,7 @@ export const LoginForm = () => {
                 Remember me
             </div>
 
-            <Button variant="primary" type="submit" >Sign In</Button>
+            <Button variant="primary" type="submit" >Log In</Button>
             <div className='relative flex justify-center items-center w-full h-[0.08rem] my-2 bg-gray-300'>
                 <p className='absolute px-2 bg-ui-card'>Or sign in with</p>
             </div>

@@ -45,7 +45,7 @@ export const Button = ({
             ${variant === "secondary" && secondaryStyles}
             `}
         >
-            <span>{icon}</span>
+            {icon && <span>{icon}</span> }
             {children}
         </motion.button>
     )
