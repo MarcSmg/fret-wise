@@ -5,7 +5,7 @@ import { FavoritesPage } from "../../features/favorites/pages/FavoritesPage";
 import { AuthPage } from "../../features/auth/pages/AuthPage";
 import { ProfilePage } from "../../features/user/pages/ProfilePage";
 import { HomePage } from "../../features/chord/pages/HomePage";
-import { LandingPage } from "../../pages/landing/LandingPage";
+// import { LandingPage } from "../../pages/landing/LandingPage";
 import { AuthLayout } from "../layout/AuthLayout";
 import { LandingLayout } from "../layout/LandingLayout";
 
@@ -13,7 +13,7 @@ export const router = createBrowserRouter([
     {
         element: <LandingLayout/>,
         children: [
-            { path: "/", element: <LandingPage/>},
+            { path: "/", element: <AuthPage initialMode="login" />},
         ]
 
     },
