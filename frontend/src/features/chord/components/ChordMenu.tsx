@@ -13,19 +13,20 @@ interface ChordMenuProps extends ComponentPropsWithRef<"div"> {
 }
 
 const containerVariants: Variants = {
-    hidden: { opacity: 0, scale: 0.95, y: -8 },
+    hidden: { opacity: 0, scale: 0.95, y: -8, height: "5px" },
     visible: {
         opacity: 1,
         scale: 1,
         y: 0,
         transition: {
-            duration: 0.15,
+            duration: 0.12,
             ease: "easeOut",
             staggerChildren: 0.05,
             delayChildren: 0.02,
         },
+        height: "auto"
     },
-    exit: { opacity: 0, scale: 0.95, y: -8 },
+    exit: { opacity: 0, scale: 0.95, y: -8, height: "5px" },
 };
 
 const itemsVariants: Variants = {
@@ -71,7 +72,7 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload,className
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute right-0 bottom-8 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-xl bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
+                            className="absolute -right-4 -top-40 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-full bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
                         >
                             <MenuAction variants={itemsVariants} icon={<BiHeart size={18} />} /> {/*Add to Favorites Button*/}
                             <MenuAction onClick={onDownload} variants={itemsVariants} icon={<LuDownload size={18} />} /> {/*Download Button*/}

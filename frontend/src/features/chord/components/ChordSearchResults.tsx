@@ -18,7 +18,7 @@ export const ChordSearchResults = ({ svgs, notFound, ...props }: SearchResultsPr
     return (
         <div
             className={`
-            grid grid-cols-2 gap-x-8 gap-y-5 p-8
+            grid grid-cols-2 gap-x-5 gap-y-5 p-8
             place-items-center w-full h-full 
             md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5
         `}
