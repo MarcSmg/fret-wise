@@ -21,7 +21,8 @@ export type RenderedDiagram = {
     openStrings: DotData[]
     mutedStrings: DotData[],
     baseFret?: number,
-    constraints: Constraints
+    constraints: Constraints,
+    label?: string
 }
 
 export type StringData = {x: number};
@@ -77,7 +78,8 @@ function buildDiagramLayout(diagram: Diagram, label?: string): RenderedDiagram {
         openStrings,
         mutedStrings,
         baseFret,
-        constraints
+        constraints,
+        label
     }
 
 }

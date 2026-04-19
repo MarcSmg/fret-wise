@@ -1,5 +1,4 @@
 import { CAGED_PATTERNS } from "../patterns/caged";
-import type { Fretboard } from "./Fretboard";
 
 type Fret = number | null;
 
@@ -126,22 +125,22 @@ function compare(frets: Fret[], pattern: Fret[]): number {
     return score / frets.length;
 }
 
-function getBassPitchClass(
-    shape: Shape,
-    fretboard: Fretboard
-) {
-    const frets = shape.getFrets();
+// function getBassPitchClass(
+//     shape: Shape,
+//     fretboard: Fretboard
+// ) {
+//     const frets = shape.getFrets();
 
-    for (let i = 0; i < frets.length; i++) {
-        const fret = frets[i];
+//     for (let i = 0; i < frets.length; i++) {
+//         const fret = frets[i];
 
-        if (fret != null) {
-            return fretboard.pitchAt(i, fret);
-        }
-    }
+//         if (fret != null) {
+//             return fretboard.pitchAt(i, fret);
+//         }
+//     }
 
-    return null;
-}
+//     return null;
+// }
 
 export {Shape};
 export type {Fret};

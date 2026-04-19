@@ -1,4 +1,4 @@
-import { GoHeart, GoHeartFill, GoHomeFill } from 'react-icons/go';
+import { GoHomeFill } from 'react-icons/go';
 import { ThemeProvider } from "../providers/ThemeProvider"
 import Sidebar from './navigation/Sidebar'
 import { Outlet } from 'react-router-dom'

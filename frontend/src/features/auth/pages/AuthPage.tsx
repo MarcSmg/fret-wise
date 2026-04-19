@@ -1,11 +1,9 @@
-import { Button } from "../../../shared/ui/Button"
 import { SlidingTabs } from "../components/SlidingTabs";
-import { useState } from "react";
 import { AuthShell } from "../components/AuthShell";
 import { LoginForm } from "./LoginForm";
 import { SignupForm } from "./SignupForm";
 import Heading from "../../../shared/ui/Heading";
-import { replace, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const AUTH_OPTIONS = [
   { id: 'login', label: 'Login' },

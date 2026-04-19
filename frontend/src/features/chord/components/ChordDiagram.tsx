@@ -1,18 +1,19 @@
 import { Fragment } from "react/jsx-runtime";
 import type { RenderedDiagram } from "../../../rendering/buildDiagramLayout"
+import { forwardRef } from "react";
 
 type ChordDiagramProps = {
     diagram: RenderedDiagram,
     width: number,
-    height: number
+    height: number,
 }
 
-export const ChordDiagram = ({diagram, width, height}: ChordDiagramProps) => {
+export const ChordDiagram = forwardRef<SVGSVGElement, ChordDiagramProps>(({diagram, width, height}: ChordDiagramProps, ref) => {
 
     const c = diagram.constraints;
 
   return (
-    <svg viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+    <svg ref={ref} viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
         <rect width="100%" height="100%" fill="white"/>
         {
             diagram.strings.map((s, i) => (
@@ -52,3 +53,4 @@ export const ChordDiagram = ({diagram, width, height}: ChordDiagramProps) => {
     </svg> 
   )
 }
+)

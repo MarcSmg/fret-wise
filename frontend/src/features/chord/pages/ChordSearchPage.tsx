@@ -1,6 +1,6 @@
 import { Fretboard } from '../../../domain/geometry/Fretboard';
 import { useEffect, useState } from 'react';
-import generateSvg from '../utils/generateSvg';
+import generateSVG from '../utils/generateSVG';
 import { ChordSearchResults } from '../components/ChordSearchResults';
 import { ChordSearchHeader } from '../components/ChordSearchHeader';
 import type { RenderedDiagram } from '../../../rendering/buildDiagramLayout';
@@ -18,7 +18,7 @@ export const ChordSearchPage = () => {
       return;
     }
     try {
-      const result = generateSvg(input, fretboard);
+      const result = generateSVG(input, fretboard);
       setSvgs(result);
       setNotFound(result.length === 0);
     } catch {

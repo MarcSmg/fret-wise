@@ -4,7 +4,7 @@ import { findChordShapes } from "../../../application/solver/generation/findChor
 import type { Fretboard } from "../../../domain/geometry/Fretboard";
 import { buildDiagramLayout, type RenderedDiagram } from "../../../rendering/buildDiagramLayout";
 
-function generateSvg(input: string, fretboard: Fretboard): RenderedDiagram[] {
+function generateSVG(input: string, fretboard: Fretboard): RenderedDiagram[] {
     const {value: chord,} = parseChordSymbol(input);
 
     const shapes = findChordShapes(chord, fretboard);
@@ -19,4 +19,4 @@ function generateSvg(input: string, fretboard: Fretboard): RenderedDiagram[] {
     return diagrams;
 }
 
-export default generateSvg;
+export default generateSVG;

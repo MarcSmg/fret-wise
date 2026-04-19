@@ -2,7 +2,7 @@ import { Fretboard } from "../../../domain/geometry/Fretboard";
 import { Shape } from "../../../domain/geometry/Shape";
 import type { Chord } from "../../../domain/harmony/Chord";
 import { hasRootInBass } from "./bassNoteAnalysis";
-import { barrePotential, fingerSpread, hasBarreConflict, hasIsolatedNote } from "./playability";
+import { barrePotential, fingerSpread, hasIsolatedNote } from "./playability";
 
 export function scoreShapes(shapes: Shape[], chord: Chord, fretboard: Fretboard): Shape[] {
 

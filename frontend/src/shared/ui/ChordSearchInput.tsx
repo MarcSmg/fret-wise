@@ -1,4 +1,4 @@
-import { useRef, type ComponentPropsWithRef } from "react"
+import { type ComponentPropsWithRef } from "react"
 import { MdClear } from "react-icons/md"
 
 interface InputProps extends ComponentPropsWithRef<"input"> {

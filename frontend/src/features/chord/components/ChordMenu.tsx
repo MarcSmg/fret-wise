@@ -9,6 +9,7 @@ interface ChordMenuProps extends ComponentPropsWithRef<"div"> {
     isActive: boolean;
     onOpen: () => void;
     onClose: () => void;
+    onDownload: () => void
 }
 
 const containerVariants: Variants = {
@@ -18,7 +19,7 @@ const containerVariants: Variants = {
         scale: 1,
         y: 0,
         transition: {
-            duration: 0.2,
+            duration: 0.15,
             ease: "easeOut",
             staggerChildren: 0.05,
             delayChildren: 0.02,
@@ -32,11 +33,11 @@ const itemsVariants: Variants = {
     visible: {
         opacity: 1,
         y: 0,
-        transition: { type: "spring", stiffness: 300, damping: 16 }
+        transition: { type: "spring", stiffness: 300, damping: 20 }
     }
 }
 
-export const ChordMenu = memo(({ isActive, onOpen, onClose, className }: ChordMenuProps) => {
+export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload,className }: ChordMenuProps) => {
 
     return (
         <div className={` ${className} relative flex flex-col size-5 w-fit`} >
@@ -72,9 +73,9 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, className }: ChordMe
                             exit="exit"
                             className="absolute right-0 bottom-8 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-xl bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
                         >
-                            <MenuAction variants={itemsVariants} icon={<BiHeart size={18} />} />
-                            <MenuAction variants={itemsVariants} icon={<LuDownload size={18} />} />
-                            <MenuAction variants={itemsVariants} icon={<LuShare2 size={18} />} />
+                            <MenuAction variants={itemsVariants} icon={<BiHeart size={18} />} /> {/*Add to Favorites Button*/}
+                            <MenuAction onClick={onDownload} variants={itemsVariants} icon={<LuDownload size={18} />} /> {/*Download Button*/}
+                            <MenuAction variants={itemsVariants} icon={<LuShare2 size={18} />} /> {/*Share Button*/}
 
                         </motion.div>
                     </>
