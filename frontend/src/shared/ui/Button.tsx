@@ -1,5 +1,5 @@
 import type { ComponentPropsWithRef, ReactNode } from "react"
-import { motion, spring, type Transition } from "motion/react"
+import { motion, type Transition } from "motion/react"
 
 interface ButtonProps extends ComponentPropsWithRef<"button"> {
     variant?: "primary" | "secondary";
