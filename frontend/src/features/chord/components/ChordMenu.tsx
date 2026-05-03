@@ -38,7 +38,7 @@ const itemsVariants: Variants = {
     }
 }
 
-export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload,className }: ChordMenuProps) => {
+export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, className }: ChordMenuProps) => {
 
     return (
         <div className={` ${className} relative flex flex-col size-5 w-fit`} >

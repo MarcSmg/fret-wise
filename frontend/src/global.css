@@ -4,32 +4,32 @@
 
 @layer base {
   :root {
-    /* Light Theme */
-    --brand: #3b82f6;
+    /* Light Theme (Cool Ocean Tones) */
+    --brand: #338aca;           /* From Gradient palette.jpeg */
 
-    --bg-main: #ffffff;
-    --bg-card: #f8fafc;
-    --bg-surface: #ffffff;
-    --bg-elevated: #f1f5f9;
+    --bg-main: #f4f7f9;
+    --bg-card: #ffffff;
+    --bg-surface: #eef5f8;
+    --bg-elevated: #dbe9f0;
     
-    --border-subtle: #e2e8f0;
-    --border-strong: #8f959b;
+    --border-subtle: #cbdce6;
+    --border-strong: #338aca;
 
-    --text-main: #0f172a;
-    --text-muted: #64748b;
+    --text-main: #191834;       /* Deep navy from palette used as text */
+    --text-muted: #4b5a78;
     --text-disabled: #94a3b8;
 
-    --primary-bold: #4f46e5;
-    --primary-soft: #eef2ff;
+    --primary-bold: #338aca;
+    --primary-soft: rgba(51, 139, 202, 0.275);
 
-    --success-bold: #059669;
-    --success-soft: #ecfdf5;
+    --success-bold: #61bdaf;    /* Mint teal from palette */
+    --success-soft: #f0faf9;
 
     --error-bold: #e11d48;
     --error-soft: #fff1f2;
 
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-sm: 0 1px 2px 0 rgba(25, 24, 52, 0.05);
+    --shadow-md: 0 4px 6px -1px rgba(25, 24, 52, 0.1);
     
     /* Glass Effect */
     --glass-bg: rgba(255, 255, 255, 0.7);
@@ -38,40 +38,40 @@
   }
 
   .dark {
-    --brand: #60a5fa;
+    /* Mapped directly from Gradient palette.jpeg */
+    --brand: #338aca;           /* The Middle Accent */
 
-    --bg-main: #020617;        /* Deepest layer */
-    --bg-card: #0f172a;        /* Card background */
-    --bg-surface: #1e293b;     /* Component surfaces */
-    --bg-elevated: #334155;    /* Hover states/Popovers */
+    --bg-main: #191834;         /* First Color: Deepest layer */
+    --bg-card: #1f1e3d;         /* Slightly lighter than main bg */
+    --bg-surface: #2b2c68;      /* Second Color: Component surfaces */
+    --bg-elevated: #36387a;     /* Elevated surfaces/Hover */
     
     /* Borders & Dividers */
-    --border-subtle: #1e293b;  /* Low contrast separation */
-    --border-strong: #334155;  /* Defined edges/Inputs */
+    --border-subtle: #2b2c68;   
+    --border-strong: #338aca;   /* Use accent for active borders */
     
     /* Text Hierarchy */
-    --text-main: #f8fafc;      /* High contrast headers */
-    --text-muted: #94a3b8;     /* Body text */
-    --text-disabled: #475569;  /* Inactive states */
+    --text-main: #ffffff;      
+    --text-muted: #aeb4c1;     
+    --text-disabled: #4c4d82;  
 
-    /* Semantic Accents (Desaturated for eye comfort) */
-    --primary-bold: #818cf8;
-    --primary-soft: rgba(79, 70, 229, 0.15);
+    /* Semantic Accents */
+    --primary-bold: #26b7cd;    /* Fourth Color: Bright cyan */
+    --primary-soft: rgba(38, 183, 205, 0.15);
 
-    --success-bold: #34d399;
-    --success-soft: rgba(5, 150, 105, 0.15);
+    --success-bold: #61bdaf;    /* Fifth Color: Mint Teal */
+    --success-soft: rgba(97, 189, 175, 0.15);
 
-    --error-bold: #fb7185;
-    --error-soft: rgba(225, 29, 72, 0.15);
+    --error-bold: #ff5f7e;
+    --error-soft: rgba(255, 95, 126, 0.15);
 
     /* Elevation & Effects */
-    /* Note: Shadows in dark mode should be darker/larger to be visible */
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
-    --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5), 0 4px 6px -4px rgba(0, 0, 0, 0.5);
+    --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    --shadow-md: 0 12px 24px -6px rgba(0, 0, 0, 0.6);
     
-    /* Glass Effect (Dark mode glass uses dark translucent fills) */
-    --glass-bg: rgba(15, 23, 42, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.1);
+    /* Glass Effect (Enhanced with the palette's teal-blue) */
+    --glass-bg: rgba(25, 24, 52, 0.7);
+    --glass-border: rgba(51, 138, 202, 0.2);
     --glass-blur: blur(12px);
   }
 

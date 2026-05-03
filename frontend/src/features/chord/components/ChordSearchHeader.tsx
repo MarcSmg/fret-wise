@@ -1,4 +1,4 @@
-import { ChordSearchInput } from "../../../shared/ui/ChordSearchInput"
+import { ChordSearchInput } from "./ChordSearchInput"
 
 interface ChordSearchHeaderProps {
     input: string,
@@ -17,7 +17,7 @@ export const ChordSearchHeader = ({input, onInputChange, onClear}: ChordSearchHe
                 onChange={onInputChange} 
                 hasText={!!input}
                 onClear={onClear}
-                className="md:w-150 rounded-full bg-ui-surface"
+                className="rounded-full bg-ui-surface"
             />
         </div>
     </section>

@@ -19,9 +19,9 @@ export const ChordSearchInput = ({id, className ="", hasText, onClear,...props}:
             placeholder="Search a chord... (Eg: Cm)"
             className={` 
                     w-full px-5 py-2 
-                    border-[0.1rem] rounded-full  outline-0 outline-primary/50 
+                    border-[0.1rem] border-stroke-strong rounded-full  outline-0 outline-primary/50 
                     shadow-md
-                    focus:outline-3 focus:bg-accent-soft transition-all duration-100
+                    focus:outline-3 focus:bg-accent-soft/20 transition-all duration-100
                 `}
             {...props}
         />    

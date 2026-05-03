@@ -5,6 +5,7 @@ import { Checkbox } from "../../../shared/ui/Checkbox"
 import { Button } from "../../../shared/ui/Button"
 import GoogleIcon from "../../../assets/google-icon.svg"
 import { useNavigate } from "react-router-dom"
+import Illustration from "@/assets/illust2.svg"
 
 
 export const SignupForm = () => {
@@ -12,18 +13,20 @@ export const SignupForm = () => {
   const navigate = useNavigate();
 
   const inputStyles = `px-5 py-3 w-full border-2 border-stroke-subtle 
-    rounded-xl outline-primary/50 
+    rounded-xl outline-primary/50 outline-0
     focus:outline-3 transition-all duration-100
     `;
   const iconStyles = `absolute left-4 text-stroke-strong`;
 
-  const handleSignUp =() => {
+  const handleSignUp = () => {
     navigate("/home");
   }
 
   return (
-    <div>
-      <form onSubmit={handleSignUp} action="" className="flex flex-col gap-5 w-full pb-5">
+    <div className='md:grid md:grid-cols-2 gap-x-10 items-center'>
+      <img className='hidden md:block' src={Illustration} />
+
+      <form onSubmit={handleSignUp} action="" className="relative flex flex-col gap-5 w-full pb-5 my-5">
 
         <div className={`
           flex flex-col gap-3

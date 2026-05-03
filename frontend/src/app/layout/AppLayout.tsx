@@ -2,23 +2,23 @@ import { GoHomeFill } from 'react-icons/go';
 import { ThemeProvider } from "../providers/ThemeProvider"
 import Sidebar from './navigation/Sidebar'
 import { Outlet } from 'react-router-dom'
-import { FaUser } from 'react-icons/fa';
 import { BottomNav } from './navigation/BottomNav';
 import { TopNav } from './navigation/TopNav';
-import { BiHeart, BiSearch } from 'react-icons/bi';
+import { BiHeart, BiSearch, BiSolidHeart, BiSolidSearch, BiSolidUser, BiUser } from 'react-icons/bi';
+import { GoHome } from 'react-icons/go';
 
 const desktopSidebarItems = [
-  { to: "/home", label: "Home", icon: <GoHomeFill size={20} /> },
-  { to: "/search", label: "Search a chord", icon: <BiSearch strokeWidth={1} size={20}/>},
-  { to: "/favorites", label: "Favorites", icon: <BiHeart size={20} /> },
-  { to: "/profile", label: "Profile", icon: <FaUser size={20} /> },
+  { to: "/home", label: "Home", icon: <GoHome strokeWidth={0.5} size={20} />,activeIcon: <GoHomeFill size={20} /> },
+  { to: "/search", label: "Search", icon: <BiSearch strokeWidth={0.5} size={20}/>, activeIcon: <BiSolidSearch size={20}/>},
+  { to: "/favorites", label: "Favorites", icon: <BiHeart strokeWidth={0.5} size={20} />, activeIcon: <BiSolidHeart size={20}/>},
+  { to: "/profile", label: "Profile", icon: <BiUser strokeWidth={0.5} size={20} />, activeIcon: <BiSolidUser size={20}/> },
 ];
 
 const mobileNavbarItems = [
-  { to: "/home", label: "Home", icon: <GoHomeFill size={20} /> },
-  { to: "/search", label: "Search a chord", icon: <BiSearch strokeWidth={1} size={20}/>},
-  { to: "/favorites", label: "Favorites", icon: <BiHeart strokeWidth={1} size={20} /> },
-  { to: "/profile", label: "Profile", icon: <FaUser size={20} /> },
+  { to: "/home", label: "Home", icon: <GoHome strokeWidth={0.5} size={20} />, activeIcon: <GoHomeFill size={20} /> },
+  { to: "/search", label: "Search", icon: <BiSearch strokeWidth={0.5} size={20}/>, activeIcon: <BiSolidSearch size={20}/>},
+  { to: "/favorites", label: "Favorites", icon: <BiHeart strokeWidth={0.5} size={20} />, activeIcon: <BiSolidHeart size={20}/> },
+  { to: "/profile", label: "Profile", icon: <BiUser strokeWidth={0.5} size={20} />, activeIcon: <BiSolidUser size={20}/> },
 ];
 
 export const AppLayout = () => {
@@ -28,7 +28,7 @@ export const AppLayout = () => {
         className="w-full h-screen overflow-hidden md:flex"
       >
           <Sidebar menuItems={desktopSidebarItems} />
-          <main className='w-full h-full overflow-y-auto'>
+          <main className='flex-1 h-full overflow-y-auto'>
             <TopNav/>
             <Outlet />
             <BottomNav menuItems={mobileNavbarItems} />

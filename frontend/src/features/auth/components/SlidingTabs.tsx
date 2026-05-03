@@ -9,13 +9,14 @@ interface SlidingTabsProps {
   options: TabOption[];
   activeId: string;
   onChange: (id: string) => void;
+  className?: string;
 }
 
-export const SlidingTabs = ({ options, activeId, onChange }: SlidingTabsProps) => {
+export const SlidingTabs = ({ options, activeId, onChange, className }: SlidingTabsProps) => {
   const activeIndex = options.findIndex((o) => o.id === activeId);
 
   return (
-    <div className="relative flex p-1 mb-5 rounded-full bg-ui-elevated border border-stroke-subtle shadow-detail-sm">
+    <div className={` ${className || ''} relative self-center flex p-1 mb-5 h-13 rounded-full bg-ui-elevated border border-stroke-subtle shadow-detail-sm`}>
       {/* The Animated Pill */}
       <motion.div
         className="absolute inset-y-1 rounded-full bg-ui-surface shadow-detail-sm border border-stroke-strong/10"

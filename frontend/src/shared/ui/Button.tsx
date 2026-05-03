@@ -21,7 +21,7 @@ export const Button = ({
     const secondaryStyles = "";
 
     const transition: Transition = {
-        type:  (variant === "primary") ? spring : "tween",
+        type: "tween",
         stiffness: 400,
         duration: 0.3,
         delay: (variant === "primary") ? 0.1 : 0,
@@ -34,7 +34,7 @@ export const Button = ({
                 // boxShadow: "0px 5px 15px rgba(0,0,0,0.2)"
             }}
             whileHover={{
-                y: -3,
+                y: -2,
                 boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
             }}
             transition={transition}
