@@ -9,6 +9,7 @@
 - The system shall render chord diagrams.
 - The system shall display available chord inversions
 - The system shall generate chord diagrams dynamically from valid chord names.
+- Users shall be able to create chords progressions.
 - The system shall notify users when a chord cannot be found.
 
 
@@ -43,7 +44,7 @@ The platform should be reliably accessible during normal usage conditions.
 
 ## 4. Constraints
 
-- The platform must be web-based.
+- The system must use caching.
 - The system must support SVG exports.
 
 ## 5. Acceptance criteria
@@ -61,6 +62,11 @@ The platform should be reliably accessible during normal usage conditions.
 - Generated file opens successfully
 - Download completes in under 3 seconds
 
+### Users shall be able to create chords progressions.
+
+- The "Add chord" button shows leads to chord search
+- Users can add chords they already saved
+
 ## 6. External interfaces
 
 ### User Interface
@@ -68,6 +74,7 @@ The platform should be reliably accessible during normal usage conditions.
 - Search field for chord names
 - Chord visualization area
 - Download controls
+- Chord progression projects
 
 ### Software Interfaces
 - REST API for chord search and retrieval

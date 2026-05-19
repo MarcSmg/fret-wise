@@ -7,12 +7,12 @@ This fragmented workflow interrupts the creative process and wastes time that co
 
 ## 2. Solution
 
-Fretwise is a platform designed to provide fast and centralized access to guitar chord diagrams and inversions through an easy-to-use interface.
+Fretwise is a platform designed to provide fast and centralized access to guitar chord diagrams and inversions through an easy-to-use interface and form their own progressions directly on the platform.
 
 ## 3. Objectives
 
 - Reduce the time required to search for chord diagrams
-- Centralize chord diagram access in one platform
+- Centralize chord diagram access and progressio writing in one platform
 - Simplify the workflow of arranging or learning songs
 - Provide fast access to chord inversions and downloadable diagrams
 
@@ -26,6 +26,7 @@ What is included :
 - Generate chord diagrams dynamically from chord names
 - Download diagrams in PNG, JPG and SVG formats
 - Save chord diagrams
+- Create chord progressions
 
 What is not included :
 
@@ -40,6 +41,7 @@ What is not included :
 - Users need the ability to find chord inversions
 - Users need downloadable chord visualizations
 - Users need the ability to save chords diagrams for later visualization
+- Users need the ability to create their own chord progressions
 
 ## 6. Stakeholders
 
