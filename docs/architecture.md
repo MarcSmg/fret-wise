@@ -83,3 +83,7 @@ The system validates user input before chord parsing to prevent malformed reques
 Chord rendering operations may be cached to reduce repeated diagram generation costs.
 
 ## 8. Deployment Architecture
+
+Frontend (React) host: Vercel
+Backend (Django) host: Render
+Database (PostgreSQL) host: Neon
