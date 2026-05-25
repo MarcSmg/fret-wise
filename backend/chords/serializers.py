@@ -7,9 +7,11 @@ class SavedChordSerializer(serializers.ModelSerializer):
         fields = ["id", "user", "symbol", "date_saved"]
 
 class ProgressionSerializer(serializers.ModelSerializer):
+
     model = Progression
     fields = ["id", "user", "title", "created_at", "updated_at"]
 
 class ProgressionChordSerializer(serializers.ModelSerializer):
+
     model = ProgressionChord
     fields = ["id", "progression", "order", "symbol"]
