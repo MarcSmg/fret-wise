@@ -15,8 +15,26 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
+from rest_framework.routers import DefaultRouter
+
+from chords.views import (
+    ProgressionChordViewSet,
+    ProgressionViewSet,
+    SavedChordViewSet
+)
+
+router = DefaultRouter()
+router.register("saved-chords", SavedChordViewSet, basename="saved-chord")
+router.register("progressions", ProgressionViewSet, basename="progression")
+router.register(
+    "progression-chords",
+    ProgressionChordViewSet,
+    basename="progression-chord",
+)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(router.urls)),
+    path("api-auth/", include("rest_framework.urls")),
 ]
