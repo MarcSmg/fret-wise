@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "motion/react"
 import { memo, type ComponentPropsWithRef } from "react";
-import { BiHeart } from "react-icons/bi"
+import { BiBookmark} from "react-icons/bi"
 import { HiDotsHorizontal } from "react-icons/hi"
 import { LuDownload, LuShare2 } from "react-icons/lu"
 import { MenuAction } from "../../../shared/ui/MenuAction";
@@ -41,7 +41,7 @@ const itemsVariants: Variants = {
 export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, className }: ChordMenuProps) => {
 
     return (
-        <div className={` ${className} relative flex flex-col size-5 w-fit`} >
+        <div className={` ${className} relative flex flex-col justify-center items-center w-fit rounded-lg hover:bg-ui-surface`} >
             <button
                 type="button"
                 onClick={(e) => {
@@ -74,7 +74,7 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, classNam
                             exit="exit"
                             className="absolute -right-4 -top-40 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-full bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
                         >
-                            <MenuAction variants={itemsVariants} icon={<BiHeart size={18} />} /> {/*Add to Favorites Button*/}
+                            <MenuAction variants={itemsVariants} icon={<BiBookmark size={18} />} /> {/*Add to Favorites Button*/}
                             <MenuAction onClick={onDownload} variants={itemsVariants} icon={<LuDownload size={18} />} /> {/*Download Button*/}
                             <MenuAction variants={itemsVariants} icon={<LuShare2 size={18} />} /> {/*Share Button*/}
 

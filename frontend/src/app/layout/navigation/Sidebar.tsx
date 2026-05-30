@@ -36,6 +36,7 @@ const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
         <div className="flex flex-col gap-2 px-4 w-full">
           {menuItems.map((item) => (
             <NavItem
+              key={item.to}
               {...item} 
               isMenuExtended={isExtended}
             />

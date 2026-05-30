@@ -3,16 +3,15 @@ import type { ComponentPropsWithRef } from "react"
 interface ChordWrapperProps extends ComponentPropsWithRef<"div"> {
 
 }
-export const ChordWrapper = ({ children, className }: ChordWrapperProps) => {
+export const ChordWrapper = ({ children, className, ...props }: ChordWrapperProps) => {
     return (
-        <div className={`
-        ${className}
-    ]    `} >
+        <div 
+            {...props}
+            className={`
+            ${className}
+        `} >
             <div
-                className={`
-                    bg-ui-surface
-                    rounded-2xl overflow-hidden    
-                `}
+                className={`flex justify-center items-center h-full w-full bg-white rounded-2xl overflow-hidden`}
             >
                 {children}
             </div>

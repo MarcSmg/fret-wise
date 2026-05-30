@@ -8,9 +8,9 @@ interface ChordSearchHeaderProps {
 
 export const ChordSearchHeader = ({input, onInputChange, onClear}: ChordSearchHeaderProps) => {
   return (
-    <section className="flex flex-col px-5">
+    <section className="flex flex-col items-center px-5 mb-10">
         {/* <Heading level={2}>Search a chord</Heading> */}
-        <div>
+        <div className=" w-full md:w-[60%] xl:w-[40%] mt-5">
             <ChordSearchInput
                 type="text" 
                 value = {input}
