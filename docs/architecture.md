@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-Fretwise is a web-based platform allowing users to search, visualize, and download guitar chord diagrams.
+ChordOpus is a web-based platform allowing users to search, visualize, and download guitar chord diagrams.
 
 The system follows a client-server architecture composed of:
 - a frontend application responsible for user interaction and chord rendering

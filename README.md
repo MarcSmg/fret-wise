@@ -1,4 +1,4 @@
-# Fretwise - Guitar chord tool
+# ChordOpus - Guitar chord tool
 
 Status: "In progress"
 

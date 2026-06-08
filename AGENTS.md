@@ -1,8 +1,8 @@
-# Fretwise AI Development Guidelines
+# ChordOpus AI Development Guidelines
 
 ## Project Overview
 
-Fretwise is a guitar chord exploration platform.
+ChordOpus is a guitar chord exploration platform.
 
 Frontend:
 

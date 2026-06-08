@@ -7,7 +7,7 @@ This fragmented workflow interrupts the creative process and wastes time that co
 
 ## 2. Solution
 
-Fretwise is a platform designed to provide fast and centralized access to guitar chord diagrams and inversions through an easy-to-use interface and form their own progressions directly on the platform.
+ChordOpus is a platform designed to provide fast and centralized access to guitar chord diagrams and inversions through an easy-to-use interface and form their own progressions directly on the platform.
 
 ## 3. Objectives
 
