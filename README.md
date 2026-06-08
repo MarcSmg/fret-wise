@@ -19,5 +19,5 @@ Who is it for ?
 
 ## Stack
 
-- **React** (MVP)
+- **React**
 - **Django + Django REST Framework (DRF)**
