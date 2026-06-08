@@ -1,4 +1,4 @@
-# Fretwise - Guitar chord tool
+# ChordOpus - Guitar chord tool
 
 Status: "In progress"
 
@@ -14,10 +14,8 @@ Who is it for ?
 - Search a chord with the UI
 - Display chord diagram
 - Display inversions
-
-## When is it done ?
-
-The project succeeds when a user can search a chord and see the chord diagram displayed with some of the possible inversions on the guitar neck.
+- Save chords
+- Create chord progressions
 
 ## Stack
 
