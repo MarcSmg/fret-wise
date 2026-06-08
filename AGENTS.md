@@ -4,21 +4,77 @@
 
 ChordOpus is a guitar chord exploration platform.
 
+## Key Directories
+.
+├─ backend/
+│  ├─ config/          # Django settings, URLs, ASGI/WGSI entrypoints
+│  ├── users/          # Django user app (authentication): models, serializers, views, tests 
+│  └─ chords/          # Django chord app: models, serializers, views, tests
+├─ frontend/
+│  ├─ public/
+│  ├─ workflow/
+│  ├─ src/
+│  │  ├─ app/
+│  │  │  ├─ layout/    # app layouts and navigation
+│  │  │  ├─ providers/ # auth/theme providers
+│  │  │  └─ router/    # routes
+│  │  ├─ application/  # music theory notation and logic
+│  │  │  ├─ diagram/
+│  │  │  ├─ notation/
+│  │  │  └─ solver/
+│  │  ├─ features/     # auth, chord UI, favorites, user pages
+│  │  ├─ domain/       # guitar related types, patterns and geometry
+│  │  ├─ rendering/    # SVG rendering engine
+│  │  ├─ shared/       # UI components, types, utils
+│  │  └─ pages/
+│  ├─ package.json
+│  ├─ tsconfig.json
+│  ├─ tsconfig.json
+│  └─ vite.config.ts
+└─ docs/
+   ├─ BRD.md
+   ├─ SRS.md
+   └─ architecture.md
+
+## Commands
+
+### frontend
+
+```bash
+# Development
+npm run dev
+
+# Testing
+npm test
+
+# Build
+npm run build
+```
+
+## Tech Stack
+
 Frontend:
 
-* React
-* TypeScript
-* Vite
+* React 19.2.0
+* TypeScript ~5.9.3
+* Vite 7.3.2
+* Tailwind css 4.2.2
 
 Backend:
 
-* Django
-* Django REST Framework
+* Django 6.0.5
+* Django REST Framework 3.17.1
+* Django Cors Headers 4.9.0
 
 Architecture:
 
 * Frontend-heavy domain logic
 * Backend-focused persistence/authentication
+
+## ### Git Workflow
+
+- Branch naming: `feature/` for features, `fix/` for fixing tasks, `refactor` for large refactoring, `chore/` for other task
+- Commit format: Conventional commits
 
 ---
 
