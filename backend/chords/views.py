@@ -46,7 +46,7 @@ class ProgressionChordViewSet(viewsets.ModelViewSet):
             progression__user=self.request.user
         )
 
-        progression_id = self.request.query_params.get("progression")
+        progression_id = self.request.query_params.get("progression_id")
 
         if progression_id:
             queryset = queryset.filter(progression_id=progression_id)
