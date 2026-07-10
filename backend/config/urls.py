@@ -25,13 +25,10 @@ from chords.views import (
 )
 
 router = DefaultRouter()
-router.register("saved-chords", SavedChordViewSet, basename="saved-chord")
-router.register("progressions", ProgressionViewSet, basename="progression")
-router.register(
-    "progression-chords",
-    ProgressionChordViewSet,
-    basename="progression-chord",
-)
+
+router.register("saved-chords", SavedChordViewSet, basename="saved-chords")
+router.register("progressions", ProgressionViewSet, basename="progressions")
+router.register("progression-chords", ProgressionChordViewSet, basename="progression-chords")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
