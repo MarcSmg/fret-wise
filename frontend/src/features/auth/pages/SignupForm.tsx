@@ -5,20 +5,49 @@ import { Button } from "../../../shared/ui/Button"
 import GoogleIcon from "../../../assets/google-icon.svg"
 import { useNavigate } from "react-router-dom"
 import Illustration from "@/assets/illust2.svg"
+import { useState } from "react"
+import { authApi } from "@/api/auth"
 
 
 export const SignupForm = () => {
 
   const navigate = useNavigate();
 
-  const inputStyles = `px-5 py-3 w-full border-2 border-stroke-subtle 
+  const inputStyles = `px-5 py-3 w-full border-2 border-stroke-subtle
     rounded-xl outline-primary/50 outline-0
     focus:outline-3 transition-all duration-100
     `;
   const iconStyles = `absolute left-4 text-stroke-strong`;
 
-  const handleSignUp = () => {
-    navigate("/home");
+  const [formInput, setFormInput] = useState({
+    firstName: "",
+    lastName: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const [message, setMessage] = useState("");
+
+  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (formInput.password !== formInput.confirmPassword) {
+      setMessage("Passwords do not match");
+      return;
+    }
+
+    try {
+      await authApi.register({
+        username: formInput.username,
+        password: formInput.password,
+        firstName: formInput.firstName,
+        lastName: formInput.lastName,
+      });
+      navigate("/login");
+    } catch {
+      setMessage("An error occurred during sign up");
+    }
   }
 
   return (
@@ -26,6 +55,7 @@ export const SignupForm = () => {
       <img className='hidden md:block' src={Illustration} />
 
       <form onSubmit={handleSignUp} action="" className="relative flex flex-col gap-5 w-full pb-5 my-5">
+        {message}
 
         <div className={`
           flex flex-col gap-3
@@ -34,31 +64,41 @@ export const SignupForm = () => {
             type="text"
             placeholder="First Name"
             className={`${inputStyles}`}
+            value={formInput.firstName}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, firstName: e.target.value }))}
           />
           <Input
             type="text"
             placeholder="Last Name"
             className={`${inputStyles}`}
+            value={formInput.lastName}
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, lastName: e.target.value }))}
           />
         </div>
         <Input
           type="text"
-          placeholder="Enter username or email"
+          placeholder="Username"
           className={`${inputStyles} pl-11`}
-          icon={<Mail className={`${iconStyles}`} />}
+          icon={<Mail className={`${iconStyles}`} strokeWidth={2} />}
+          value={formInput.username}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, username: e.target.value }))}
         />
 
         <Input
           type="password"
           placeholder="Enter your password"
           className={`${inputStyles} pl-11`}
-          icon={<Lock className={`${iconStyles}`} />}
+          icon={<Lock className={`${iconStyles}`} strokeWidth={2} />}
+          value={formInput.password}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, password: e.target.value }))}
         />
         <Input
           type="password"
           placeholder="Confirm your password"
           className={`${inputStyles} pl-11`}
-          icon={<Lock className={`${iconStyles}`} />}
+          icon={<Lock className={`${iconStyles}`} strokeWidth={2} />}
+          value={formInput.confirmPassword}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, confirmPassword: e.target.value }))}
         />
 
         <div className='flex gap-3'>

@@ -3,34 +3,82 @@
 
 
 @layer base {
+  /* General Sans & Satoshi — self-hosted, sourced from Fontshare
+     (free for commercial use, Indian Type Foundry) */
+  @font-face {
+    font-family: "General Sans";
+    src: url("./assets/fonts/general-sans-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "General Sans";
+    src: url("./assets/fonts/general-sans-600.woff2") format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "General Sans";
+    src: url("./assets/fonts/general-sans-700.woff2") format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("./assets/fonts/satoshi-400.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Satoshi";
+    src: url("./assets/fonts/satoshi-500.woff2") format("woff2");
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
   :root {
-    /* Light Theme (Cool Ocean Tones) */
-    --brand: #338aca;           /* From Gradient palette.jpeg */
+    /* Light Theme — ChordOpus Brand Guidelines, July 2026 */
+    --brand: #0f766e;              /* Brand Colors > Primary */
+    --brand-secondary: #22577a;    /* Brand Colors > Secondary */
 
-    --bg-main: #f4f7f9;
+    --bg-main: #faf9f5;            /* Interface > Background */
     --bg-card: #ffffff;
-    --bg-surface: #eef5f8;
-    --bg-elevated: #dbe9f0;
-    
-    --border-subtle: #cbdce6;
-    --border-strong: #338aca;
+    --bg-surface: #f1efe9;         /* derived: not specified in guide */
+    --bg-elevated: #e9e6de;        /* derived: not specified in guide */
 
-    --text-main: #191834;       /* Deep navy from palette used as text */
-    --text-muted: #4b5a78;
-    --text-disabled: #94a3b8;
+    --border-subtle: #e4e1d8;      /* derived: not specified in guide */
+    --border-strong: var(--accent-secondary);
 
-    --primary-bold: #338aca;
-    --primary-soft: rgba(51, 139, 202, 0.275);
+    --text-main: #1f2a38;          /* Text Primary */
+    --text-muted: #6b7280;         /* Text Secondary */
+    --text-disabled: #94a3b8;      /* derived: not specified in guide */
 
-    --success-bold: #61bdaf;    /* Mint teal from palette */
-    --success-soft: #f0faf9;
+    --primary-bold: #0d9488;       /* Buttons > Button Primary (distinct from Brand Primary) */
+    --primary-soft: rgba(13, 148, 136, 0.14);   /* derived tint */
 
-    --error-bold: #e11d48;
-    --error-soft: #fff1f2;
+    --accent-secondary: #1c6da3;   /* Buttons > Button Secondary (distinct from Brand Secondary) */
+    --accent-secondary-soft: rgba(28, 109, 163, 0.1);   /* derived tint, for hover/pressed states */
 
-    --shadow-sm: 0 1px 2px 0 rgba(25, 24, 52, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(25, 24, 52, 0.1);
-    
+    --success-bold: #15a34a;       /* Semantic > Success */
+    --success-soft: rgba(21, 163, 74, 0.12);    /* derived tint */
+
+    --error-bold: #dc2626;         /* Semantic > Error */
+    --error-soft: rgba(220, 38, 38, 0.12);      /* derived tint */
+
+    --info-bold: #2663eb;          /* Semantic > Info */
+    --info-soft: rgba(38, 99, 235, 0.12);       /* derived tint */
+
+    --warning-bold: #d97707;       /* Semantic > Warning */
+    --warning-soft: rgba(217, 119, 7, 0.12);    /* derived tint */
+
+    --shadow-sm: 0 1px 2px 0 rgba(31, 42, 56, 0.06);
+    --shadow-md: 0 4px 6px -1px rgba(31, 42, 56, 0.1);
+
     /* Glass Effect */
     --glass-bg: rgba(255, 255, 255, 0.7);
     --glass-border: rgba(255, 255, 255, 0.3);
@@ -38,50 +86,61 @@
   }
 
   .dark {
-    /* Mapped directly from Gradient palette.jpeg */
-    --brand: #338aca;           /* The Middle Accent */
+    /* Dark Theme — ChordOpus Brand Guidelines, July 2026 */
+    --brand: #14b8a6;              /* Brand Colors > Primary */
+    --brand-secondary: #6b8cbf;    /* Brand Colors > Secondary */
 
-    --bg-main: #191834;         /* First Color: Deepest layer */
-    --bg-card: #1f1e3d;         /* Slightly lighter than main bg */
-    --bg-surface: #2b2c68;      /* Second Color: Component surfaces */
-    --bg-elevated: #36387a;     /* Elevated surfaces/Hover */
-    
-    /* Borders & Dividers */
-    --border-subtle: #2b2c68;   
-    --border-strong: #338aca;   /* Use accent for active borders */
-    
-    /* Text Hierarchy */
-    --text-main: #ffffff;      
-    --text-muted: #aeb4c1;     
-    --text-disabled: #4c4d82;  
+    --bg-main: #191c21;            /* Interface > Background */
+    --bg-card: #1e232b;
+    --bg-surface: #1e232b;
+    --bg-elevated: #262c36;        /* derived: not specified in guide */
 
-    /* Semantic Accents */
-    --primary-bold: #26b7cd;    /* Fourth Color: Bright cyan */
-    --primary-soft: rgba(38, 183, 205, 0.15);
+    --border-subtle: #262c36;      /* derived: not specified in guide */
+    --border-strong: var(--accent-secondary);
 
-    --success-bold: #61bdaf;    /* Fifth Color: Mint Teal */
-    --success-soft: rgba(97, 189, 175, 0.15);
+    --text-main: #f2f3f5;          /* Text Primary */
+    --text-muted: #9da4b0;         /* Text Secondary */
+    --text-disabled: #545b66;      /* derived: not specified in guide */
 
-    --error-bold: #ff5f7e;
-    --error-soft: rgba(255, 95, 126, 0.15);
+    --primary-bold: #14b8a6;       /* Buttons > Button Primary (matches Brand Primary in dark theme) */
+    --primary-soft: rgba(20, 184, 166, 0.15);   /* derived tint */
 
-    /* Elevation & Effects */
+    --accent-secondary: #5fa4fa;   /* Buttons > Button Secondary (distinct from Brand Secondary) */
+    --accent-secondary-soft: rgba(95, 164, 250, 0.15);   /* derived tint, for hover/pressed states */
+
+    --success-bold: #21c45d;       /* Semantic > Success */
+    --success-soft: rgba(33, 196, 93, 0.15);    /* derived tint */
+
+    --error-bold: #f04343;         /* Semantic > Error */
+    --error-soft: rgba(240, 67, 67, 0.15);      /* derived tint */
+
+    --info-bold: #3b81f5;          /* Semantic > Info */
+    --info-soft: rgba(59, 129, 245, 0.15);      /* derived tint */
+
+    --warning-bold: #f59d0a;       /* Semantic > Warning */
+    --warning-soft: rgba(245, 157, 10, 0.15);   /* derived tint */
+
     --shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
     --shadow-md: 0 12px 24px -6px rgba(0, 0, 0, 0.6);
-    
-    /* Glass Effect (Enhanced with the palette's teal-blue) */
-    --glass-bg: rgba(25, 24, 52, 0.7);
-    --glass-border: rgba(51, 138, 202, 0.2);
+
+    /* Glass Effect */
+    --glass-bg: rgba(25, 28, 33, 0.7);
+    --glass-border: rgba(20, 184, 166, 0.2);
     --glass-blur: blur(12px);
   }
 
   body {
     background-color: var(--bg-main);
     color: var(--text-main);
+    font-family: var(--font-body);
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 
-    html, body, #root {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  html, body, #root {
     height: 100%;
     width: 100%;
     margin: 0;
@@ -104,6 +163,53 @@
 
 
 @theme {
+  /* Typography */
+  --font-heading: "General Sans", sans-serif;
+  --font-body: "Satoshi", sans-serif;
+
+  /* Type scale — size paired with leading per Brand Guidelines.
+     Base value is the smaller end of each range (mobile-first,
+     matching Heading.tsx's existing md: override pattern); the
+     larger end is noted for whoever wires up md: variants. */
+  --text-display: 3.5rem;              /* 56px, up to 64px on md: */
+  --text-display--line-height: 1.1;
+
+  --text-header-1: 2.5rem;             /* 40px, up to 48px on md: */
+  --text-header-1--line-height: 1.15;
+
+  --text-header-2: 2rem;               /* 32px, up to 36px on md: */
+  --text-header-2--line-height: 1.2;
+
+  --text-header-3: 1.5rem;             /* 24px, up to 28px on md: */
+  --text-header-3--line-height: 1.25;
+
+  --text-header-4: 1.25rem;            /* 20px, up to 22px on md: */
+  --text-header-4--line-height: 1.3;
+
+  --text-section-label: 0.8125rem;     /* 13px, up to 14px on md: */
+  --text-section-label--line-height: 1.2;
+
+  --text-nav: 0.9375rem;               /* 15px, up to 16px on md: */
+  --text-nav--line-height: 1.2;
+
+  --text-chord-symbol: 1.125rem;       /* 18px, up to 22px on md: */
+  --text-chord-symbol--line-height: 1.2;
+
+  --text-roman: 1rem;                  /* 16px, up to 18px on md: */
+  --text-roman--line-height: 1.2;
+
+  --text-body: 1.0625rem;              /* 17px, fixed */
+  --text-body--line-height: 1.6;
+
+  --text-body-sm: 0.9375rem;           /* 15px, fixed */
+  --text-body-sm--line-height: 1.2;
+
+  --text-label: 0.875rem;              /* 14px, fixed */
+  --text-label--line-height: 1.4;
+
+  --text-button-label: 0.9375rem;      /* 15px, fixed */
+  --text-button-label--line-height: 1.2;
+
   /* Surface / Backgrounds */
   --color-ui-bg: var(--bg-main);
   --color-ui-card: var(--bg-card);
@@ -112,10 +218,13 @@
 
   /* Brand & Primary */
   --color-primary: var(--brand);
+  --color-secondary: var(--brand-secondary);
   --color-accent-bold: var(--primary-bold);
   --color-accent-soft: var(--primary-soft);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-secondary-soft: var(--accent-secondary-soft);
 
-  /* Typography */
+  /* Typography colors */
   --color-content: var(--text-main);
   --color-content-muted: var(--text-muted);
   --color-content-disabled: var(--text-disabled);
@@ -129,6 +238,10 @@
   --color-status-success-soft: var(--success-soft);
   --color-status-error: var(--error-bold);
   --color-status-error-soft: var(--error-soft);
+  --color-status-info: var(--info-bold);
+  --color-status-info-soft: var(--info-soft);
+  --color-status-warning: var(--warning-bold);
+  --color-status-warning-soft: var(--warning-soft);
 
   /* Effects */
   --shadow-detail-sm: var(--shadow-sm);

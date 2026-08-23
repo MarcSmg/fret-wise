@@ -32,7 +32,7 @@ export const NavItem = ({ to, label, activeIcon, icon, className, isMenuExtended
               animate={{ opacity: 1, width: "auto", marginLeft: 12 }}
               exit={{ opacity: 0, width: 0, marginLeft: 0 }}
               transition={{ duration: 0.2 }}
-              className="overflow-hidden whitespace-nowrap"
+              className="overflow-hidden whitespace-nowrap font-heading font-medium text-nav"
             >
               {label}
             </motion.span>

@@ -18,7 +18,9 @@ export const Button = ({
     const primaryStyles = `
         bg-gradient-to-r from-primary to-accent-bold text-white shadow-detail-md
     `
-    const secondaryStyles = "";
+    const secondaryStyles = `
+        bg-ui-card text-accent-secondary border-2 border-accent-secondary hover:bg-accent-secondary-soft
+    `;
 
     const transition: Transition = {
         type: "tween",

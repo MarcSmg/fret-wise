@@ -30,7 +30,7 @@ const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
             className="size-11 rounded-xl cursor-pointer flex items-center justify-center hover:bg-accent-soft/40 transition-colors duration-200" 
             onClick={toggleMenu}
           >
-            <Menu className="text-content-muted" width={22} height={22} />
+            <Menu className="text-content-muted" width={22} height={22} strokeWidth={2} />
           </div>
         </div>
         <div className="flex flex-col gap-2 px-4 w-full">

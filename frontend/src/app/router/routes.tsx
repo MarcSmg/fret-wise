@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "../layout/AppLayout";
 import { ChordSearchPage } from "../../features/chord/pages/ChordSearchPage";
-import { FavoritesPage } from "../../features/saved-chords/pages/SavedChordsPage";
+import { SavedChordsPage } from "../../features/saved-chords/pages/SavedChordsPage";
 import { AuthPage } from "../../features/auth/pages/AuthPage";
 import { ProfilePage } from "../../features/user/pages/ProfilePage";
 import { HomePage } from "../../features/chord/pages/HomePage";
@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         children: [
             { path: "/home", element: <HomePage /> },
             { path: "/search", element: <ChordSearchPage/>},
-            { path: "/favorites", element: <FavoritesPage /> },
+            { path: "/saved-chords", element: <SavedChordsPage /> },
             { path: "/profile", element: <ProfilePage /> }
         ],
     },

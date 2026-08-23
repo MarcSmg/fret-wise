@@ -11,7 +11,7 @@ function formatVoicing(voicing: unknown) {
   return JSON.stringify(voicing);
 }
 
-export const FavoritesPage = () => {
+export const SavedChordsPage = () => {
   const [savedChords, setSavedChords] = useState<ApiSavedChordResponse[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);

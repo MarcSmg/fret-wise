@@ -46,9 +46,9 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, classNam
                     e.stopPropagation(); // Stop click from triggering row actions
                     isActive ? onClose() : onOpen();
                 }}
-                className={`p-1 rounded-md transition-colors ${isActive ? 'text-primary bg-ui-elevated' : 'text-content-muted hover:text-content'}`}
+                className={`p-1 rounded-md transition-colors cursor-pointer ${isActive ? 'text-primary bg-ui-elevated' : 'text-content-muted hover:text-content'}`}
             >
-                <MoreHoriz className="size-5" />
+                <MoreHoriz className="size-5" strokeWidth={3} />
             </button>
 
             <AnimatePresence>
@@ -70,11 +70,11 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, classNam
                             initial="hidden"
                             animate="visible"
                             exit="exit"
-                            className="absolute -right-4 -top-40 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-full bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
+                            className="absolute -right-4 -top-40 z-70 mt-2 flex flex-col gap-2 p-1 py-2 rounded-full bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
                         >
-                            <MenuAction variants={itemsVariants} icon={<Bookmark width={18} height={18} />} /> {/*Add to Favorites Button*/}
-                            <MenuAction onClick={onDownload} variants={itemsVariants} icon={<Download width={18} height={18} />} /> {/*Download Button*/}
-                            <MenuAction variants={itemsVariants} icon={<ShareAndroid width={18} height={18} />} /> {/*Share Button*/}
+                            <MenuAction variants={itemsVariants} icon={<Bookmark strokeWidth={2} />} /> {/*Add to Saved Chords Button*/}
+                            <MenuAction onClick={onDownload} variants={itemsVariants} icon={<Download strokeWidth={2} />} /> {/*Download Button*/}
+                            <MenuAction variants={itemsVariants} icon={<ShareAndroid strokeWidth={2} />} /> {/*Share Button*/}
 
                         </motion.div>
                     </>

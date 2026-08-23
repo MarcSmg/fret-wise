@@ -52,7 +52,7 @@ export const LoginForm = () => {
                     type="text"
                     placeholder="Enter username or email"
                     className={`${inputStyles}`}
-                    icon={<Mail className={`${iconStyles}`} />}
+                    icon={<Mail className={`${iconStyles}`} strokeWidth={2} />}
                     value={formInput.login}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, login: e.target.value }))}
                 />
@@ -61,7 +61,7 @@ export const LoginForm = () => {
                     type="password"
                     placeholder="Enter your password"
                     className={`${inputStyles}`}
-                    icon={<Lock className={`${iconStyles}`} />}
+                    icon={<Lock className={`${iconStyles}`} strokeWidth={2} />}
                     value={formInput.password}
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFormInput(prv => ({ ...prv, password: e.target.value }))}
                 />
