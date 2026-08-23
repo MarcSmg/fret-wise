@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getSavedChords } from "../../../api/chords";
-import type { SavedChordResponse } from "../../../api/types/chords";
+import { chordApi } from "../../../api/chords";
 import Heading from "../../../shared/ui/Heading";
+import type { ApiSavedChordResponse } from "@/types/api";
 
 function formatVoicing(voicing: unknown) {
   if (typeof voicing === "string") {
@@ -12,7 +12,7 @@ function formatVoicing(voicing: unknown) {
 }
 
 export const FavoritesPage = () => {
-  const [savedChords, setSavedChords] = useState<SavedChordResponse[]>([]);
+  const [savedChords, setSavedChords] = useState<ApiSavedChordResponse[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -21,7 +21,7 @@ export const FavoritesPage = () => {
 
     async function loadSavedChords() {
       try {
-        const chords = await getSavedChords();
+        const chords = await chordApi.getAllSavedChords();
 
         if (isMounted) {
           setSavedChords(chords);
@@ -77,9 +77,9 @@ export const FavoritesPage = () => {
               </p>
               <time
                 className="mt-4 block text-xs text-content-muted"
-                dateTime={chord.date_saved}
+                dateTime={chord.dateSaved}
               >
-                Saved {new Date(chord.date_saved).toLocaleDateString()}
+                Saved {new Date(chord.dateSaved).toLocaleDateString()}
               </time>
             </li>
           ))}

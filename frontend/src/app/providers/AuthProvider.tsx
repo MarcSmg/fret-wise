@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import { AuthContext, type User } from "../../context/AuthContext";
+import {
+    authApi
 
+} from "@/api/auth";
 type AuthProviderProps = {
     children: React.ReactNode;
 }
 
-export function AuthProvider({children}: AuthProviderProps) {
+export function AuthProvider({ children }: AuthProviderProps) {
 
     const [user, setUser] = useState<User>(null);
     const [loading, setLoading] = useState(true);
@@ -21,11 +24,8 @@ export function AuthProvider({children}: AuthProviderProps) {
     useEffect(() => {
         async function init() {
             try {
-                // API call
-                // const user = api.me()
-                
-                const user = null;
-                
+                const user = await authApi.me()
+
                 setUser(user);
             } finally {
                 setLoading(false);
@@ -36,14 +36,15 @@ export function AuthProvider({children}: AuthProviderProps) {
 
     return (
         <AuthContext.Provider
-        value={{
-            user,
-            isAuthenticated: !!user,
-            login,
-            logout
-        }}
+            value={{
+                user,
+                isAuthenticated: !!user,
+                loading,
+                login,
+                logout
+            }}
         >
-            { !loading && children}
+            {!loading && children}
         </AuthContext.Provider>
     )
 }

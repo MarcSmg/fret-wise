@@ -8,20 +8,26 @@ import { HomePage } from "../../features/chord/pages/HomePage";
 // import { LandingPage } from "../../pages/landing/LandingPage";
 import { AuthLayout } from "../layout/AuthLayout";
 import { LandingLayout } from "../layout/LandingLayout";
+import { GuestRoute } from "./GuestRoute";
 
 export const router = createBrowserRouter([
     {
-        path: "/",
-        element: <LandingLayout/>,
+        element: <GuestRoute />,
         children: [
-            { index: true, element: <AuthPage initialMode="login" />},
-        ]
-    },
-    {
-        element: <AuthLayout/>,
-        children: [
-            { path: "/login", element: <AuthPage initialMode="login" /> },
-            { path: "/signup", element: <AuthPage initialMode="signup" /> },
+            {
+                path: "/",
+                element: <LandingLayout/>,
+                children: [
+                    { index: true, element: <AuthPage initialMode="login" />},
+                ]
+            },
+            {
+                element: <AuthLayout/>,
+                children: [
+                    { path: "/login", element: <AuthPage initialMode="login" /> },
+                    { path: "/signup", element: <AuthPage initialMode="signup" /> },
+                ]
+            },
         ]
     },
     {

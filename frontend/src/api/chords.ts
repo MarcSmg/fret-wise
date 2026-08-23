@@ -1,31 +1,37 @@
 import { api } from "./client";
-import type { SavedChordResponse } from "./types/chords";
+import type { ApiSavedChordResponse } from "@/types/api";
 
-// Saved chords
+const savedChordsUrl = "/saved-chords/";
+const progressionsUrl = "/progressions/";
+const progressionChordsUrl = "/progression-chords/"
 
-// Get all saved chords for the current user
-export async function getSavedChords(): Promise<SavedChordResponse[]> {
-  const response = await api.get<SavedChordResponse[]>("/saved-chords/");
-  return response.data;
-}
+export const chordApi = {
+  // Saved chords
 
-export async function saveChord(chordId: number) {
-  const response = await api.post("/saved-chords/", { id: chordId });
-  return response.data;
-}
+  // Get all saved chords for the current user
+  getAllSavedChords: async (): Promise<ApiSavedChordResponse[]> => {
+    const response = await api.get<ApiSavedChordResponse[]>(savedChordsUrl);
+    return response.data;
+  },
 
-// Progressions
+  saveChord: async (chordId: number) => {
+    const response = await api.post(savedChordsUrl, { id: chordId });
+    return response.data;
+  },
 
-// Get all progressions for the current user
-export async function getProgressions() {
-  const response = await api.get("/progressions/");
-  return response.data;
-}
+  // Progressions
 
-// Progression chords
+  // Get all progressions for the current user
+  getProgressions: async () => {
+    const response = await api.get(progressionsUrl);
+    return response.data;
+  },
 
-// Get all chords for a specific progression
-export async function getProgressionChords(progressionId: number) {
-  const response = await api.get(`/progression-chords/?progression_id=${progressionId}`);
-  return response.data;
+  // Progression chords
+  
+  // Get all chords for a specific progression
+  getProgressionChords: async (progressionId: number) => {
+    const response = await api.get(`${progressionChordsUrl}?progression_id=${progressionId}`);
+    return response.data;
+  },
 }

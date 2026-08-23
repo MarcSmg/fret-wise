@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { userAuth as useAuth } from "../../context/AuthContext";
+import { useAuth as useAuth } from "../../context/AuthContext";
 
 export const LandingPage = () => {
     const { isAuthenticated } = useAuth();

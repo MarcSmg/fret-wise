@@ -1,8 +1,6 @@
 import { AnimatePresence, motion, type Variants } from "motion/react"
 import { memo, type ComponentPropsWithRef } from "react";
-import { BiBookmark} from "react-icons/bi"
-import { HiDotsHorizontal } from "react-icons/hi"
-import { LuDownload, LuShare2 } from "react-icons/lu"
+import { Bookmark, MoreHoriz, Download, ShareAndroid } from "iconoir-react"
 import { MenuAction } from "../../../shared/ui/MenuAction";
 
 interface ChordMenuProps extends ComponentPropsWithRef<"div"> {
@@ -50,7 +48,7 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, classNam
                 }}
                 className={`p-1 rounded-md transition-colors ${isActive ? 'text-primary bg-ui-elevated' : 'text-content-muted hover:text-content'}`}
             >
-                <HiDotsHorizontal className="size-5" />
+                <MoreHoriz className="size-5" />
             </button>
 
             <AnimatePresence>
@@ -74,9 +72,9 @@ export const ChordMenu = memo(({ isActive, onOpen, onClose, onDownload, classNam
                             exit="exit"
                             className="absolute -right-4 -top-40 z-70 mt-2 flex flex-col gap-2 p-1.5 py-2 rounded-full bg-ui-card border border-stroke-strong/20 shadow-detail-md backdrop-blur-glass"
                         >
-                            <MenuAction variants={itemsVariants} icon={<BiBookmark size={18} />} /> {/*Add to Favorites Button*/}
-                            <MenuAction onClick={onDownload} variants={itemsVariants} icon={<LuDownload size={18} />} /> {/*Download Button*/}
-                            <MenuAction variants={itemsVariants} icon={<LuShare2 size={18} />} /> {/*Share Button*/}
+                            <MenuAction variants={itemsVariants} icon={<Bookmark width={18} height={18} />} /> {/*Add to Favorites Button*/}
+                            <MenuAction onClick={onDownload} variants={itemsVariants} icon={<Download width={18} height={18} />} /> {/*Download Button*/}
+                            <MenuAction variants={itemsVariants} icon={<ShareAndroid width={18} height={18} />} /> {/*Share Button*/}
 
                         </motion.div>
                     </>

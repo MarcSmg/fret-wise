@@ -34,7 +34,7 @@ export const ChordSearchPage = () => {
   return (
     <>
       <section 
-        className={`py-3 px-0 pb-38 flex flex-col w-full min-h-screen md:pb-10 bg-ui-elevated`}
+        className={`py-3 px-0 pb-38 flex flex-col w-full min-h-screen md:pb-10 bg-ui-surface`}
       >
         <ChordSearchHeader 
           input={input} 

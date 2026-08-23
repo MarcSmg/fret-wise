@@ -3,20 +3,21 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class UserPreferences(models.Model):
+class UserProfile(models.Model):
     user = models.OneToOneField(
         User,
         on_delete=models.CASCADE,
+        related_name="profile"
     )
-    
+
     notation = models.CharField(
         max_length=20,
         default="english",
     )
-    
+
     tuning = models.CharField(
         max_length=50,
         default="EADGBE",
-    )   
-    
-    created_at = models.DateTimeField(auto_now_add=True)
+    )
+
+    updated_at = models.DateTimeField(auto_now=True)
