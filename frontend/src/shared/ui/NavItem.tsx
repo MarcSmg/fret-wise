@@ -15,7 +15,7 @@ export const NavItem = ({ to, label, activeIcon, icon, className, isMenuExtended
     <NavLink
       to={to}
       className={({ isActive }) => `
-        flex items-center h-11 rounded-xl px-3
+        flex items-center rounded-xl px-3 py-2
         ${className || ""} 
         ${isActive ? "md:text-content md:bg-accent-soft" : "hover:bg-accent-soft/40 transition-colors duration-200"}
       `}

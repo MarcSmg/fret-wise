@@ -1,7 +1,7 @@
 import { NavItem } from "../../../shared/ui/NavItem";
 import type { MenuItem } from "../../../shared/types/navigation";
 import { motion } from "motion/react";
-import { Menu } from "iconoir-react";
+import { SidebarExpand, SidebarCollapse } from "iconoir-react";
 import { useState } from "react";
 
 const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
@@ -27,10 +27,10 @@ const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
       >
         <div className="px-4 mb-10 mt-2">
           <div 
-            className="size-11 rounded-xl cursor-pointer flex items-center justify-center hover:bg-accent-soft/40 transition-colors duration-200" 
+            className="size-11 rounded-xl cursor-pointer flex items-center justify-center //hover:bg-accent-soft/40 transition-colors duration-200" 
             onClick={toggleMenu}
           >
-            <Menu className="text-content-muted" width={22} height={22} strokeWidth={2} />
+            {isExtended ? <SidebarCollapse className="text-content-muted" width={18} height={18} strokeWidth={2} /> : <SidebarExpand className="text-content-muted" width={18} height={18} strokeWidth={2} />}
           </div>
         </div>
         <div className="flex flex-col gap-2 px-4 w-full">
