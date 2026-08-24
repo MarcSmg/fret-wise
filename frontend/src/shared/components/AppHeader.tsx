@@ -7,7 +7,7 @@ export const AppHeader = () => {
       
       <Link to="/" className="group">
         <h1 className="text-xl font-black  text-content group-hover:text-primary transition-colors">
-          Fretwise
+          ChordOpus
         </h1>
       </Link>
     </div>

@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "../layout/AppLayout";
 import { ChordSearchPage } from "../../features/chord/pages/ChordSearchPage";
-import { FavoritesPage } from "../../features/favorites/pages/FavoritesPage";
+import { FavoritesPage } from "../../features/saved-chords/pages/SavedChordsPage";
 import { AuthPage } from "../../features/auth/pages/AuthPage";
 import { ProfilePage } from "../../features/user/pages/ProfilePage";
 import { HomePage } from "../../features/chord/pages/HomePage";
@@ -11,9 +11,10 @@ import { LandingLayout } from "../layout/LandingLayout";
 
 export const router = createBrowserRouter([
     {
+        path: "/",
         element: <LandingLayout/>,
         children: [
-            { path: "/", element: <AuthPage initialMode="login" />},
+            { index: true, element: <AuthPage initialMode="login" />},
         ]
     },
     {

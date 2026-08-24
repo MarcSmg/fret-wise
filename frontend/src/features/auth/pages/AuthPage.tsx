@@ -27,7 +27,7 @@ export const AuthPage = ({initialMode}: AuthPageProps) => {
 
   return (
     <div className=" relative flex justify-center items-center min-h-screen w-full bg-linear-to-t from-primary from-80% to-accent-bold md:bg-linear-to-t md:from-white md:to-white md:h-auto md:px-[15%] lg:px-[20%]">
-      <Heading className=" absolute top-30 w-full text-white text-center md:hidden" >Fretwise</Heading>
+      <Heading className=" absolute top-30 w-full text-white text-center md:hidden" >ChordOpus</Heading>
       <div
         className={` fixed w-full -mb-1 bg-ui-card bottom-0 left-0 right-0 min-h-[60vh] border border-stroke-subtle rounded-t-3xl shadow-detail-md overflow-hidden md:relative  md:h-fit`}
       >

@@ -5,9 +5,11 @@ export const LandingPage = () => {
     const { isAuthenticated } = useAuth();
 
     if (isAuthenticated) {
-        return <Navigate to="/app" replace />;
+        return <Navigate to="/home" replace />;
     }
   return (
-    <div>LandingPage</div>
+    <p>
+      Landing Page - Welcome to Chord Opus! Please log in or sign up to continue.
+    </p>
   )
 }

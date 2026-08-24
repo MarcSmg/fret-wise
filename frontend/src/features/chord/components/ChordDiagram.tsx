@@ -4,16 +4,17 @@ import { forwardRef } from "react";
 
 type ChordDiagramProps = {
     diagram: RenderedDiagram,
-    width: number,
-    height: number,
+    width?: number,
+    height?: number,
+    onContextMenu?: (e: React.MouseEvent) => void
 }
 
-export const ChordDiagram = forwardRef<SVGSVGElement, ChordDiagramProps>(({diagram, width, height}: ChordDiagramProps, ref) => {
+export const ChordDiagram = forwardRef<SVGSVGElement, ChordDiagramProps>(({diagram, width=diagram.constraints.width, height=diagram.constraints.height, onContextMenu}: ChordDiagramProps, ref) => {
 
     const c = diagram.constraints;
 
   return (
-    <svg ref={ref} viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
+    <svg onContextMenu={onContextMenu} ref={ref} viewBox={`0 0 ${width} ${height}`} width={width} height={height}>
         <rect width="100%" height="100%" fill="white"/>
         {
             diagram.strings.map((s, i) => (
