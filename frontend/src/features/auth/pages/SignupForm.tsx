@@ -1,6 +1,5 @@
-import { FaRegEnvelope } from "react-icons/fa"
+import { Mail, Lock } from "iconoir-react"
 import { Input } from "../../../shared/ui/Input"
-import { LuLockKeyhole } from "react-icons/lu"
 import { Checkbox } from "../../../shared/ui/Checkbox"
 import { Button } from "../../../shared/ui/Button"
 import GoogleIcon from "../../../assets/google-icon.svg"
@@ -46,20 +45,20 @@ export const SignupForm = () => {
           type="text"
           placeholder="Enter username or email"
           className={`${inputStyles} pl-11`}
-          icon={<FaRegEnvelope className={`${iconStyles}`} />}
+          icon={<Mail className={`${iconStyles}`} />}
         />
 
         <Input
           type="password"
           placeholder="Enter your password"
           className={`${inputStyles} pl-11`}
-          icon={<LuLockKeyhole className={`${iconStyles}`} />}
+          icon={<Lock className={`${iconStyles}`} />}
         />
         <Input
           type="password"
           placeholder="Confirm your password"
           className={`${inputStyles} pl-11`}
-          icon={<LuLockKeyhole className={`${iconStyles}`} />}
+          icon={<Lock className={`${iconStyles}`} />}
         />
 
         <div className='flex gap-3'>

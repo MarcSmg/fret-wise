@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import SavedChord, Progression, ProgressionChord
+from ..models import SavedChord, Progression, ProgressionChord
 
 
 class SavedChordSerializer(serializers.ModelSerializer):

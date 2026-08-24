@@ -1,24 +1,22 @@
-import { GoHomeFill } from 'react-icons/go';
+import { Home, Search, Bookmark, BookmarkSolid, User } from 'iconoir-react';
 import { ThemeProvider } from "../providers/ThemeProvider"
 import Sidebar from './navigation/Sidebar'
 import { Outlet } from 'react-router-dom'
 import { BottomNav } from './navigation/BottomNav';
 import { TopNav } from './navigation/TopNav';
-import { BiBookmark, BiSearch, BiSolidBookmark, BiSolidSearch, BiSolidUser, BiUser } from 'react-icons/bi';
-import { GoHome } from 'react-icons/go';
 
 const desktopSidebarItems = [
-  { to: "/home", label: "Home", icon: <GoHome strokeWidth={0.5} size={20} />,activeIcon: <GoHomeFill size={20} /> },
-  { to: "/search", label: "Search", icon: <BiSearch strokeWidth={0.5} size={20}/>, activeIcon: <BiSolidSearch size={20}/>},
-  { to: "/favorites", label: "Favorites", icon: <BiBookmark strokeWidth={0.5} size={20} />, activeIcon: <BiSolidBookmark size={20}/>},
-  { to: "/profile", label: "Profile", icon: <BiUser strokeWidth={0.5} size={20} />, activeIcon: <BiSolidUser size={20}/> },
+  { to: "/home", label: "Home", icon: <Home strokeWidth={1.5} width={20} height={20} />, activeIcon: <Home strokeWidth={2.5} width={20} height={20} /> },
+  { to: "/search", label: "Search", icon: <Search strokeWidth={1.5} width={20} height={20} />, activeIcon: <Search strokeWidth={2.5} width={20} height={20} /> },
+  { to: "/favorites", label: "Favorites", icon: <Bookmark strokeWidth={1.5} width={20} height={20} />, activeIcon: <BookmarkSolid width={20} height={20} /> },
+  { to: "/profile", label: "Profile", icon: <User strokeWidth={1.5} width={20} height={20} />, activeIcon: <User strokeWidth={2.5} width={20} height={20} /> },
 ];
 
 const mobileNavbarItems = [
-  { to: "/home", label: "Home", icon: <GoHome strokeWidth={0.5} size={20} />, activeIcon: <GoHomeFill size={20} /> },
-  { to: "/search", label: "Search", icon: <BiSearch strokeWidth={0.5} size={20}/>, activeIcon: <BiSolidSearch size={20}/>},
-  { to: "/favorites", label: "Favorites", icon: <BiBookmark strokeWidth={0.5} size={20} />, activeIcon: <BiSolidBookmark size={20}/> },
-  { to: "/profile", label: "Profile", icon: <BiUser strokeWidth={0.5} size={20} />, activeIcon: <BiSolidUser size={20}/> },
+  { to: "/home", label: "Home", icon: <Home strokeWidth={1.5} width={20} height={20} />, activeIcon: <Home strokeWidth={2.5} width={20} height={20} /> },
+  { to: "/search", label: "Search", icon: <Search strokeWidth={1.5} width={20} height={20} />, activeIcon: <Search strokeWidth={2.5} width={20} height={20} /> },
+  { to: "/favorites", label: "Favorites", icon: <Bookmark strokeWidth={1.5} width={20} height={20} />, activeIcon: <BookmarkSolid width={20} height={20} /> },
+  { to: "/profile", label: "Profile", icon: <User strokeWidth={1.5} width={20} height={20} />, activeIcon: <User strokeWidth={2.5} width={20} height={20} /> },
 ];
 
 export const AppLayout = () => {

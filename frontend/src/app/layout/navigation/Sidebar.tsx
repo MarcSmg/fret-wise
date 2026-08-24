@@ -1,7 +1,7 @@
 import { NavItem } from "../../../shared/ui/NavItem";
 import type { MenuItem } from "../../../shared/types/navigation";
 import { motion } from "motion/react";
-import { HiMenuAlt2 } from "react-icons/hi";
+import { Menu } from "iconoir-react";
 import { useState } from "react";
 
 const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
@@ -30,7 +30,7 @@ const Sidebar = ({ menuItems }: { menuItems: MenuItem[] }) => {
             className="size-11 rounded-xl cursor-pointer flex items-center justify-center hover:bg-accent-soft/40 transition-colors duration-200" 
             onClick={toggleMenu}
           >
-            <HiMenuAlt2 className="text-content-muted" size={22} />
+            <Menu className="text-content-muted" width={22} height={22} />
           </div>
         </div>
         <div className="flex flex-col gap-2 px-4 w-full">
